@@ -35,8 +35,7 @@ This project is currently in the early stages, so additional setup instructions 
 ## Preliminary Data and Features
 
 ### Data Sources
-- Heat sensors (preliminary data as of 12/07/24)
-- Solar sensors (ERD created, data integration planned for future versions)
+- Heat / solar sensors (preliminary data as of 12/07/24)
 - Dummy data for initial graph rendering
 
 ### Features (V0)
@@ -48,7 +47,6 @@ This project is currently in the early stages, so additional setup instructions 
 
 ### User Stories
 - As a user, I want to see real-time data from the heat sensors.
-- As a user, I want to interact with the graph to see data changes when the heat sensor is manipulated (e.g. by holding or blowing on it).
 - As a user, I want the app to match the branding of existing systems pages.
 
 ### Wireframes
@@ -72,7 +70,7 @@ sensor (sensorId, sensorType, locationId)
 
 ## Demo and Deployment
 
-The app is currently not deployed. A future deployment plan may include instructions for sideloading the app onto Apple devices or releasing it via TestFlight for internal testing.
+The app is currently not deployed.
 
 ## Technologies Used
 
