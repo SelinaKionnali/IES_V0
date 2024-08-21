@@ -40,7 +40,7 @@ This project is currently in the early stages, so additional setup instructions 
 
 ### Features (V0)
 - Display preliminary or dummy data in a simple graph
-- Basic user interface for data visualization
+- Basic user interface for data visualisation
 - No backend integration at this stage
 
 ## Project Planning
@@ -60,7 +60,7 @@ The following wireframe provides a basic outline of the initial user interface d
   At the top of the dashboard, there is a row of circular icons. Each icon represents a different part of the Integrated Energy System (IES), such as Water, Food, Thermal, Grey Water, and Power. These icons are interactive and allow users to navigate to the corresponding IES section pages.
 
 - **Page Title:**  
-  Below the circular icons, a title is displayed, such as "Dashboard". This title provides context for the current page and helps users understand which part of the app they are viewing.
+  Below the circular icons, a title is displayed, such as "Dashboard" or "Food System". This title provides context for the current page and helps users understand which part of the app they are viewing.
 
 - **General Info Component:**  
   Under the title, a large rectangular component is used to display general information or updates about the overall IES system. This component may include important notifications or a summary of the system's status.
@@ -80,19 +80,19 @@ The following wireframe provides a basic outline of the initial user interface d
   Each section page includes a large rectangular component that provides detailed information about the selected IES section. For example, the "Water System" page might show water levels, quality, and recent updates.
 
 - **Graph Component:**  
-  Below the information component, a graph is displayed to visualize relevant data for the selected section. This could include trends over time, such as water usage, solar energy captured, or temperature changes.
+  Below the information component, a graph is displayed to visualise relevant data for the selected section. This component will include a header title i.e. Thermal Data or Volume Level or Temperature. As well as a visual indicator, the graph will also show relevant numbers and text.
 
 - **Bottom Navigation Bar:**  
   Just like on the dashboard, the bottom navigation bar remains consistent across all section pages, allowing users to easily access other parts of the app.
 
 ### Conclusion
 
-This wireframe serves as a starting point for the visual and functional layout of the IES V0 application. The design prioritizes simplicity and ease of navigation, ensuring that users can quickly access and understand the data from the various sections of the Integrated Energy System.
+This wireframe serves as a starting point for the visual and functional layout of the IES V0 application. The design prioritises simplicity and ease of navigation, ensuring that users can quickly access and understand the data from the various sections of the Integrated Energy System.
 
 ### ERD (Entity Relationship Diagram)
 The current ERD outlines the data structures for solar and heat sensors. This diagram will evolve as more data sources are integrated.
 
-The following ERD represents the simplified data structure used in V0 of the IES Data Viewer application. This version focuses on visualizing basic thermal data from a single sensor type.
+The following ERD represents the simplified data structure used in V0 of the IES Data Viewer application. This version focuses on visualising basic thermal data from a single sensor type.
 
 - **sensor**: Identifies the sensor collecting the data.
 - **thermalData**: Captures the temperature data recorded by the sensor. For V0, this includes data such as `timestamp`, `coldTempIn`, `hotTempOut`, and `volumeLevel`.
