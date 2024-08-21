@@ -57,6 +57,18 @@ Initial wireframes are in progress and will focus on the graph display and basic
 ### ERD (Entity Relationship Diagram)
 The current ERD outlines the data structures for solar and heat sensors. This diagram will evolve as more data sources are integrated.
 
+The following ERD represents the simplified data structure used in V0 of the IES Data Viewer application. This version focuses on visualizing basic thermal data from a single sensor type.
+
+- **sensor**: Identifies the sensor collecting the data.
+- **thermalData**: Captures the temperature data recorded by the sensor. For V0, this includes data such as `timestamp`, `coldTempIn`, `hotTempOut`, and `volumeLevel`.
+
+### Simplified ERD for V0
+
+```plaintext
+sensor (sensorId, sensorType, locationId)
+   |
+   |-- thermalData (recordId, sensorId, timestamp, coldTempIn, hotTempOut, volumeLevel)
+
 ## Demo and Deployment
 
 The app is currently not deployed. A future deployment plan may include instructions for sideloading the app onto Apple devices or releasing it via TestFlight for internal testing.
