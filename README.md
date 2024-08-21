@@ -50,7 +50,44 @@ This project is currently in the early stages, so additional setup instructions 
 - As a user, I want the app to match the branding of existing systems pages.
 
 ### Wireframes
-Initial wireframes are in progress and will focus on the graph display and basic UI elements that align with the existing branding. Future versions may incorporate more detailed wireframes based on additional requirements.
+The following wireframe provides a basic outline of the initial user interface design for the IES V0 application. This wireframe represents both the dashboard and individual IES section pages, showcasing the core components and navigation structure that will be implemented in the first version of the app.
+
+![IES-V0 wireframe](IMG_3053 1.png)
+
+### 1. **Dashboard Page**
+
+- **Top Navigation (Circular Icons):**  
+  At the top of the dashboard, there is a row of circular icons. Each icon represents a different part of the Integrated Energy System (IES), such as Water, Food, Thermal, Grey Water, and Power. These icons are interactive and allow users to navigate to the corresponding IES section pages.
+
+- **Page Title:**  
+  Below the circular icons, a title is displayed, such as "Dashboard". This title provides context for the current page and helps users understand which part of the app they are viewing.
+
+- **General Info Component:**  
+  Under the title, a large rectangular component is used to display general information or updates about the overall IES system. This component may include important notifications or a summary of the system's status.
+
+- **Bottom Navigation Bar:**  
+  The bottom of the screen contains a navigation bar that provides access to other key areas of the app, such as Home, Settings, and Profile. This bar is persistent across all pages for easy navigation.
+
+### 2. **IES Section Pages (Water, Food, Thermal, etc.)**
+
+- **Top Navigation (Circular Icons):**  
+  The same row of circular icons from the dashboard page is present on each IES section page, allowing for quick navigation between different parts of the IES.
+
+- **Section Title:**  
+  A title specific to the selected IES section (e.g., "Water System", "Food System") is displayed below the icons. This title helps orient the user within the app and clearly indicates the section they are viewing.
+
+- **Section Info Component:**  
+  Each section page includes a large rectangular component that provides detailed information about the selected IES section. For example, the "Water System" page might show water levels, quality, and recent updates.
+
+- **Graph Component:**  
+  Below the information component, a graph is displayed to visualize relevant data for the selected section. This could include trends over time, such as water usage, solar energy captured, or temperature changes.
+
+- **Bottom Navigation Bar:**  
+  Just like on the dashboard, the bottom navigation bar remains consistent across all section pages, allowing users to easily access other parts of the app.
+
+### Conclusion
+
+This wireframe serves as a starting point for the visual and functional layout of the IES V0 application. The design prioritizes simplicity and ease of navigation, ensuring that users can quickly access and understand the data from the various sections of the Integrated Energy System.
 
 ### ERD (Entity Relationship Diagram)
 The current ERD outlines the data structures for solar and heat sensors. This diagram will evolve as more data sources are integrated.
