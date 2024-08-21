@@ -63,11 +63,12 @@ The following ERD represents the simplified data structure used in V0 of the IES
 - **thermalData**: Captures the temperature data recorded by the sensor. For V0, this includes data such as `timestamp`, `coldTempIn`, `hotTempOut`, and `volumeLevel`.
 
 ### Simplified ERD for V0
-
+    
 ```plaintext
 sensor (sensorId, sensorType, locationId)
    |
    |-- thermalData (recordId, sensorId, timestamp, coldTempIn, hotTempOut, volumeLevel)
+```
 
 ## Demo and Deployment
 
