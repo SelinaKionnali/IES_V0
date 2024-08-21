@@ -52,7 +52,7 @@ This project is currently in the early stages, so additional setup instructions 
 ### Wireframes
 The following wireframe provides a basic outline of the initial user interface design for the IES V0 application. This wireframe represents both the dashboard and individual IES section pages, showcasing the core components and navigation structure that will be implemented in the first version of the app.
 
-![IES-V0 wireframe](IMG_3053 1.png)
+![IES-V0 wireframe](https://github.com/SelinaKionnali/IES_V0/blob/main/IMG_3053%201.png?raw=true)
 
 ### 1. **Dashboard Page**
 
