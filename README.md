@@ -74,16 +74,16 @@ For this V0, I will primarily only be focusing on  building three pages total - 
 - **Bottom Navigation Bar:**  
   The bottom of the screen contains a navigation bar that provides access to other key areas of the app, such as Home, Settings, and Profile. This bar is persistent across all pages for easy navigation.
 
-### 2. **IES Section Pages (Water, Food, Thermal, etc.)**
+### 2. **IES Section Pages (Solar and Thermal)**
 
 - **Top Navigation (Circular Icons):**  
   The same row of circular icons from the dashboard page is present on each IES section page, allowing for quick navigation between different parts of the IES.
 
 - **Section Title:**  
-  A title specific to the selected IES section (e.g., "Water System", "Food System") is displayed below the icons. This title helps orient the user within the app and clearly indicates the section they are viewing.
+  A title specific to the selected IES section (e.g., "Heat System", "Power System") is displayed below the icons. This title helps orient the user within the app and clearly indicates the section they are viewing.
 
 - **Section Info Component:**  
-  Each section page includes a large rectangular component that provides detailed information about the selected IES section. For example, the "Water System" page might show water levels, quality, and recent updates.
+  Each section page includes a large rectangular component that provides detailed information about the selected IES section. For example, the "Solar System" page might show power usage updates.
 
 - **Graph Component:**  
   Below the information component, a graph is displayed to visualise relevant data for the selected section. This component will include a header title i.e. Thermal Data or Volume Level or Temperature. As well as a visual indicator, the graph will also show relevant numbers and text.
