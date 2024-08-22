@@ -54,6 +54,11 @@ The following wireframe provides a basic outline of the initial user interface d
 
 ![IES-V0 wireframe](https://github.com/SelinaKionnali/IES_V0/blob/main/IMG_3053%201.png?raw=true)
 
+I updated the wireframe on draw.io to clarify the links at the top to be links to other systems pages in the future. However, for this V0, I will primarily only be focusing on  building three pages total - a main dashboard and a details page for power and for heat.
+
+![IES-V0 wireframe]()
+
+
 ### 1. **Dashboard Page**
 
 - **Top Navigation (Circular Icons):**  
