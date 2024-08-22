@@ -52,7 +52,7 @@ This project is currently in the early stages, so additional setup instructions 
 ### Wireframes
 The following wireframe provides a basic outline of the initial user interface design for the IES V0 application. This wireframe represents both the dashboard and individual IES section pages, showcasing the core components and navigation structure that will be implemented in the first version of the app.
 
-![IES-V0 wireframe](https://github.com/SelinaKionnali/IES_V0/blob/main/IMG_3053%201.png?raw=true)
+![IES-V0 wireframe]([https://github.com/SelinaKionnali/IES_V0/blob/main/IMG_3053%201.png?raw=true](https://github.com/SelinaKionnali/IES_V0/blob/main/assets/IMG_3053%201.png?raw=true))
 
 I updated the wireframe on draw.io to clarify the links at the top to be links to other systems pages in the future. Using draw.io also allows for easier editing. 
 For this V0, I will primarily only be focusing on  building three pages total - a main dashboard and a details page for power and for heat.
