@@ -3,12 +3,23 @@ import { View, Text, StyleSheet } from 'react-native'
 
 const DashboardScreen = () => {
   return (
-    <View>
-      <Text>DashboardScreen</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>DashboardScreen</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#183564',
+    },
+    text: {
+        color: '#FFF1CF',
+        fontSize: 24,
+    },
+})
 
 export default DashboardScreen;

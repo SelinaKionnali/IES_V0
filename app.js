@@ -1,14 +1,23 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import DashboardScreen from "./screens/DashboardScreen";
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import DashboardScreen from './screens/DashboardScreen';
 
-const navigator = createStackNavigator({
-  Dash: DashboardScreen,
-}, {
-  initialRouteName: "Dash",
-  defaultNavigationOptions: {
-    title: "Business Search"
-  }         
-});
+const Stack = createStackNavigator();
 
-export default createAppContainer(navigator);
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Dash"
+        screenOptions={{
+          headerTitle: 'Kionnali - IES_V0', // This replaces `defaultNavigationOptions`
+        }}
+      >
+        <Stack.Screen name="Dash" component={DashboardScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
