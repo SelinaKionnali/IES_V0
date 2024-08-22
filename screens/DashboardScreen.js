@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native'
 const DashboardScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>DashboardScreen</Text>
+      <Text style={styles.text}>Dashboard Screen</Text>
     </View>
   )
 }
