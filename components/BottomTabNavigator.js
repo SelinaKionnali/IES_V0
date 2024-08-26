@@ -1,13 +1,15 @@
-// BottomTabNavigator.js
+
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../screens/DashboardScreen';
 import ThermalScreen from '../screens/ThermalScreen';
+import PowerScreen from '../screens/PowerScreen';
 
 // Create stack navigators for each tab
 const DashboardStack = createStackNavigator();
 const ThermalStack = createStackNavigator();
+const PowerStack = createStackNavigator();
 
 function DashboardStackNavigator() {
   return (
@@ -33,6 +35,18 @@ function ThermalStackNavigator() {
   );
 }
 
+function PowerStackNavigator() {
+    return (
+        <PowerStack.Navigator>
+            <PowerStack.Screen 
+            name="Power"
+            component={PowerScreen}
+            options={{ headerTitle: 'Power'}}
+            />
+        </PowerStack.Navigator>
+    )
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
@@ -51,6 +65,11 @@ export default function BottomTabNavigator() {
         name="ThermalTab" 
         component={ThermalStackNavigator} 
         options={{ tabBarLabel: 'Thermal' }}
+      />
+      <Tab.Screen 
+      name="PowerTab"
+      component={PowerStackNavigator}
+      options={{ tabBarLabel: 'Power' }}
       />
     </Tab.Navigator>
   );
