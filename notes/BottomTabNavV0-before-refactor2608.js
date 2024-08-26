@@ -71,7 +71,7 @@ export default function BottomTabNavigator() {
             tabBarIcon: ({ color, size}) => (
                 <Image 
                     source={lightFormIcon}
-                    style={{ width: 40, height: 40, tintColor: '#183564'}}
+                    style={{ width: 50, height: 50, tintColor: '#183564'}}
                     
                 />
             )
