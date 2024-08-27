@@ -6,9 +6,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../screens/DashboardScreen';
 import ThermalScreen from '../screens/ThermalScreen';
 import PowerScreen from '../screens/PowerScreen';
-import lightFormIcon from '../assets/icons/lightFormIcon.png'
-import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png'
-import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png'
+import lightFormIcon from '../assets/icons/lightFormIcon.png';
+import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png';
+import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png';
 
 // Create stack navigators for each tab
 const DashboardStack = createStackNavigator();
@@ -48,7 +48,7 @@ function PowerStackNavigator() {
             options={{ headerTitle: 'Power'}}
             />
         </PowerStack.Navigator>
-    )
+    );
 }
 
 const Tab = createBottomTabNavigator();
@@ -56,11 +56,33 @@ const Tab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: '#ff9700',
-          tabBarInactiveTintColor: 'gray',
-      }}
+      screenOptions={({route}) => ({
+        tabBarIcon: ({ color, size}) => {
+            let iconSource;
+
+            if (route.name === 'DashboardTab') {
+                iconSource = lightFormIcon
+            } else if (route.name === 'ThermalTab') {
+                iconSource = heatSystemsIcon;
+            } else if (route.name === 'PowerTab') {
+                iconSource = powerSystemsIcon;
+            
+            }
+            
+            return (
+                <Image
+                  source={iconSource}
+                  style={{
+                    width: size,
+                    height: size,
+                    tintColor: color,
+                  }}
+                />
+              );            },
+            tabBarActiveTintColor: '#ff9700',
+            tabBarInactiveTintColor: 'gray',
+            headerShown: false,
+      })}
       
     >
       <Tab.Screen 
@@ -68,13 +90,6 @@ export default function BottomTabNavigator() {
         component={DashboardStackNavigator} 
         options={{ 
             tabBarLabel: 'Dashboard', 
-            tabBarIcon: ({ color, size}) => (
-                <Image 
-                    source={lightFormIcon}
-                    style={{ width: 40, height: 40, tintColor: '#183564'}}
-                    
-                />
-            )
         }}
       />
       <Tab.Screen 
@@ -82,24 +97,12 @@ export default function BottomTabNavigator() {
         component={ThermalStackNavigator} 
         options={{ 
             tabBarLabel: 'Thermal',
-            tabBarIcon: ({ color, size }) => (
-                <Image
-                source={heatSystemsIcon}
-                style={{ width: 30, height: 30, tintColor: '#183564'}}
-                />
-            )
         }}
       />
       <Tab.Screen 
       name="PowerTab"
       component={PowerStackNavigator}
       options={{ tabBarLabel: 'Power',
-        tabBarIcon: ({ color, size }) => (
-            <Image
-            source={powerSystemsIcon}
-            style={{ width: 30, height: 30, tintColor: '#183564'}}
-            />
-        )
 
       }}
       />
