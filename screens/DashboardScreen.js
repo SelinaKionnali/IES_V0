@@ -1,14 +1,15 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
-import RadialGraph from '../components/RadialGraph.js'
+import ProgressGraph from '../components/ProgressGraph.js'
+import PieChartGraph from '../components/PieChartGraph.js'
 
 const DashboardScreen = () => {
   return (
     <View style={styles.container}>
       <GeneralUpdateComponent />
-      <RadialGraph />
-      <Text style={styles.text}>Dashboard Screen</Text>
+      <ProgressGraph />
+      <PieChartGraph />
     </View>
   )
 }
