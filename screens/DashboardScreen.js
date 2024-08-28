@@ -1,9 +1,13 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
+import RadialGraph from '../components/RadialGraph.js'
 
 const DashboardScreen = () => {
   return (
     <View style={styles.container}>
+      <GeneralUpdateComponent />
+      <RadialGraph />
       <Text style={styles.text}>Dashboard Screen</Text>
     </View>
   )
@@ -12,7 +16,7 @@ const DashboardScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'top',
         alignItems: 'center',
         backgroundColor: '#183564',
     },
