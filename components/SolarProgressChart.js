@@ -6,15 +6,13 @@ const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to f
 
 const data = {
   labels: ["Solar"], // Label for the progress ring
-  data: [0.4], // 40% usage
+  data: [0.4]
 };
 
 const chartConfig = {
   backgroundGradientFrom: "#183564",
   backgroundGradientTo: "#183564",
-  color: () => `#FFD700`, // Bright yellow for Solar
-  strokeWidth: 16, // Adjust thickness of the ring
-  barPercentage: 0.5,
+  color: (opacity = 1) => `rgba(255, 213, 104, ${opacity})`,  barPercentage: 1,
   useShadowColorFromDataset: false, // Disable shadows
 };
 
@@ -26,8 +24,8 @@ const SolarProgressChart = () => {
         data={data}
         width={screenWidth - 20}
         height={220}
-        strokeWidth={16}
-        radius={32}
+        strokeWidth={8}
+        radius={60}
         chartConfig={chartConfig}
         hideLegend={true}
       />

@@ -4,6 +4,7 @@ import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
 import ProgressGraph from '../components/ProgressGraph.js'
 import PieChartGraph from '../components/PieChartGraph.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
+import ProgressChartsWidget from '../components/ProgressChartsWidget.js'
 
 const DashboardScreen = () => {
   return (
@@ -11,7 +12,7 @@ const DashboardScreen = () => {
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent />
-        <ProgressGraph />
+        <ProgressChartsWidget />
         <PieChartGraph />
       </View>
       </ScrollView>

@@ -1,38 +1,63 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Lumi from '../assets/icons/Lumi (1).png'
 
 const GeneralUpdateComponent = () => {
    return (
-    <View style={styles.container}>
-        <View>
+    <View style={styles.columnContainer}>
+    <View style={styles.rowContainer}>
             <Image source={Lumi} style={{marginRight: 20}}/>
-        </View>
-        <View>
             <Text style={styles.text}>Pick systems to compare and I will help explain the data.</Text>
-        </View>
+    </View>
+    <View style={styles.rowTextContainer}>
+    <TouchableOpacity >
+            <Text style={styles.linkText}>Full update</Text>
+    </TouchableOpacity>
+    <TouchableOpacity >
+            <Text style={styles.linkText}>Quick chat</Text>
+    </TouchableOpacity>
+    </View>
+
     </View>
    )
 }
 
 const styles = StyleSheet.create({
-    container: {
+    columnContainer: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
+        flexDirection: 'column',
         margin: 20,
         width: 360  ,
         height: 120,
         backgroundColor: '#4C698B',
         borderRadius: 30,
-        padding: 10
+        padding: 20
     },
+    rowContainer: {
+       display: 'flex',
+       flexDirection: 'row',
+       justifyContent: 'flex-start',
+       alignItems: 'flex-start'
+    },
+    rowTextContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginLeft: 20,
+        marginTop: 10
+     },
+ 
     text: {
         color: '#FFF1CF',
         fontFamily: 'Text-Light',
         width: 200
+    },
+    linkText: {
+        color: '#FFF1CF',
+        fontFamily: 'Text-Light',
+        width: 200,
+        textDecorationLine: 'underline'
     }
+
 })
 
 export default GeneralUpdateComponent;
