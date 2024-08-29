@@ -1,29 +1,25 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
 
 const data = [
-  { name: '18-24', population: 31.47, color: '#8884d8', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: '25-29', population: 26.69, color: '#83a6ed', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: '30-34', population: 15.69, color: '#8dd1e1', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: '35-39', population: 8.22, color: '#82ca9d', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: '40-49', population: 8.63, color: '#a4de6c', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: '50+', population: 2.63, color: '#d0ed57', legendFontColor: '#7F7F7F', legendFontSize: 15 },
-  { name: 'Unknown', population: 6.67, color: '#ffc658', legendFontColor: '#7F7F7F', legendFontSize: 15 },
+  { name: 'Solar', population: 45, color: '#FFD568', legendFontColor: '#FFF1CF', legendFontSize: 15 },
+  { name: 'Wind', population: 20, color: '#9AAFCF', legendFontColor: '#FFF1CF', legendFontSize: 15 },
+  { name: 'Thermal', population: 15, color: '#C49ACF', legendFontColor: '#FFF1CF', legendFontSize: 15 },
 ];
 
 const PieChartGraph = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <PieChart
         data={data}
         width={300}
         height={220}
         chartConfig={{
-          backgroundColor: '#1cc910',
-          backgroundGradientFrom: '#eff3ff',
-          backgroundGradientTo: '#efefef',
-          color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          backgroundColor: 'transparent', // Remove background color
+          backgroundGradientFrom: '#183564', // Dark blue background to match the app theme
+          backgroundGradientTo: '#183564', // Matching gradient for consistency
+          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // White text for visibility
         }}
         accessor="population"
         backgroundColor="transparent"
@@ -33,5 +29,15 @@ const PieChartGraph = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#183564', // Dark blue background to fit your app theme
+    padding: 20,
+    borderRadius: 20,
+  },
+});
 
 export default PieChartGraph;
