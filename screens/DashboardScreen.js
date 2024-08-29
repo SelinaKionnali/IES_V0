@@ -1,19 +1,17 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
-import PieChartGraph from '../components/PieChartGraph.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import ProgressChartsWidget from '../components/ProgressChartsWidget.js'
 import BatteryChargeChart from '../components/BatteryChargeChart.js'
 
 const DashboardScreen = () => {
   return (
-    <ScrollView>
+    <ScrollView >
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent />
         <ProgressChartsWidget />
-        <PieChartGraph />
         <BatteryChargeChart />
       </View>
       </ScrollView>

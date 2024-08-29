@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#183564',
     borderRadius: 20,
+    marginTop: 40,
+    marginBottom: 20
   },
 });
 

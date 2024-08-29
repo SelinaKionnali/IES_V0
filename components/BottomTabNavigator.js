@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { Image } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../screens/DashboardScreen';
@@ -15,13 +15,32 @@ const DashboardStack = createStackNavigator();
 const ThermalStack = createStackNavigator();
 const PowerStack = createStackNavigator();
 
+function CustomHeaderTitle() {
+  return (
+    <View style={styles.headerTitleContainer}>
+      <Text style={styles.headerTitle}>Compare Systems</Text>
+      <View style={styles.headerUnderline} />
+    </View>
+  );
+}
+
 function DashboardStackNavigator() {
   return (
     <DashboardStack.Navigator>
       <DashboardStack.Screen 
         name="Dashboard" 
         component={DashboardScreen} 
-        options={{ headerTitle: 'Dashboard' }} 
+        options={{ 
+          headerTitle: 'Compare Systems',
+          headerTitleStyle: {
+            fontFamily: 'asl-regular',
+            color: '#FFF1CF',
+            fontSize: 24
+          },
+          headerStyle: {
+            backgroundColor: '#183564'
+          }
+         }} 
       />
     </DashboardStack.Navigator>
   );

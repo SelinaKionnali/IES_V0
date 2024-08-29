@@ -6,7 +6,7 @@ const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to f
 
 const data = {
   labels: ["Thermal"], // Label for the progress ring
-  data: [0.7], // 70% usage
+  data: [0.74], // 70% usage
 };
 
 const chartConfig = {
@@ -26,22 +26,46 @@ const ThermalProgressChart = () => {
         data={data}
         width={screenWidth - 20}
         height={220}
-        strokeWidth={16}
-        radius={44}
+        strokeWidth={8}
+        radius={70}
         chartConfig={chartConfig}
         hideLegend={true}
       />
+            <View style={styles.overlayContainer}>
+        <Text style={styles.percentageText}>74%</Text>
+        <Text style={styles.labelText}>Battery Charge</Text>
+      </View>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  header: {
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: screenWidth,
+        height: screenWidth,
+      },
+      overlayContainer: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+      },
+      percentageText: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: '#FFD568', 
+        fontFamily: 'Text-Light'
+      },
+      labelText: {
+        fontSize: 16,
+        color: '#FFF1CF',
+        fontFamily: 'Text-Light',
+      },
+      header: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,

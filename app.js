@@ -26,6 +26,9 @@ export default function App() {
           'Text-Light': require('./assets/fonts/Quicksand-Light.ttf'),
           'Text-Medium': require('./assets/fonts/Quicksand-Medium.ttf'),
           'Text-SemiBold': require('./assets/fonts/Quicksand-SemiBold.ttf'),
+          'asl-regular': require('./assets/fonts/AveriaSansLibre-Regular.ttf'),
+          'asl-Light': require('./assets/fonts/AveriaSansLibre-Light.ttf'),
+          'asl-Bold': require('./assets/fonts/AveriaSansLibre-Bold.ttf')
            });
 
         await new Promise(resolve => setTimeout(resolve, 2000));
