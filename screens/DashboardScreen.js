@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
-import ProgressGraph from '../components/ProgressGraph.js'
 import PieChartGraph from '../components/PieChartGraph.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import ProgressChartsWidget from '../components/ProgressChartsWidget.js'
+import BatteryChargeChart from '../components/BatteryChargeChart.js'
 
 const DashboardScreen = () => {
   return (
@@ -14,6 +14,7 @@ const DashboardScreen = () => {
         <GeneralUpdateComponent />
         <ProgressChartsWidget />
         <PieChartGraph />
+        <BatteryChargeChart />
       </View>
       </ScrollView>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { 
+import { TouchableOpacity,
     Image,
     View,
     StyleSheet,
@@ -42,7 +42,7 @@ const SystemsTopTabNavigator = () => {
                 <FlatList 
                     data={systemsIconData}
                     horizontal
-                    renderItem={({item}) => <Image source={item.image} style={styles.icon} />}
+                    renderItem={({item}) => <TouchableOpacity><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
                     keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
                 
@@ -60,7 +60,8 @@ const styles = StyleSheet.create ({
       container: {
         width: screenWidth,
         height: 120,
-        padding: 10
+        padding: 10,
+        paddingTop: 20
       }
 })
 
