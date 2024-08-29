@@ -13,7 +13,7 @@ const chartConfig = {
   backgroundGradientFrom: "#183564",
   backgroundGradientTo: "#183564",
   
-  color: (opacity = 5) => `rgba(255, 165, 0, ${opacity})`, // Adjust the color as needed
+  color: (opacity = 1) => `rgba(255, 165, 0, ${opacity})`, // Adjust the color as needed
   strokeWidth: 8, // Adjust thickness of the rings
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // Disable shadows
