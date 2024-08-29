@@ -10,9 +10,10 @@ const data = {
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#9AAFCF",
-  backgroundGradientTo: "#4C698B",
-  color: (opacity = 1) => `rgba(22, 128, 176, ${opacity})`, // Adjust the color as needed
+  backgroundGradientFrom: "#183564",
+  backgroundGradientTo: "#183564",
+  
+  color: (opacity = 5) => `rgba(255, 165, 0, ${opacity})`, // Adjust the color as needed
   strokeWidth: 8, // Adjust thickness of the rings
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // Disable shadows
@@ -29,7 +30,8 @@ const ProgressGraph = () => {
         strokeWidth={16}
         radius={32}
         chartConfig={chartConfig}
-        hideLegend={false}
+        hideLegend={true}
+        
       />
       <View style={styles.labelsContainer}>
         <View style={styles.labelWrapper}>
@@ -50,7 +52,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    borderWidth:5
   },
   header: {
     fontSize: 24,
@@ -69,7 +70,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
-    borderWidth: 3
   },
   circle: {
     width: 12,
