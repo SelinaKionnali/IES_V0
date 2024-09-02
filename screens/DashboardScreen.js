@@ -10,7 +10,7 @@ const DashboardScreen = () => {
     <ScrollView >
       <View style={styles.container}>
         <SystemsTopTabNavigator />
-        <GeneralUpdateComponent />
+        <GeneralUpdateComponent updateText="Pick systems to compare and I will help explain the data."/>
         <ProgressChartsWidget />
         <BatteryChargeChart />
       </View>

@@ -15,14 +15,32 @@ const DashboardStack = createStackNavigator();
 const ThermalStack = createStackNavigator();
 const PowerStack = createStackNavigator();
 
-function CustomHeaderTitle() {
+function CustomHeaderTitle({ title }) {
   return (
     <View style={styles.headerTitleContainer}>
-      <Text style={styles.headerTitle}>Compare Systems</Text>
+      <Text style={styles.headerTitle}>{title}</Text>
       <View style={styles.headerUnderline} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  headerTitleContainer: {
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontFamily: 'asl-regular',
+    color: '#FFF1CF',
+    fontSize: 24,
+  },
+  headerUnderline: {
+    marginTop: 8, // Adjust the spacing between the title and the underline
+    width: 120,    // Length of the underline
+    height: 4,    // Thickness of the underline
+    backgroundColor: '#ff9700', // Color of the underline
+    borderRadius: 30
+  },
+});
 
 function DashboardStackNavigator() {
   return (
@@ -31,16 +49,13 @@ function DashboardStackNavigator() {
         name="Dashboard" 
         component={DashboardScreen} 
         options={{ 
-          headerTitle: 'Compare Systems',
-          headerTitleStyle: {
-            fontFamily: 'asl-regular',
-            color: '#FFF1CF',
-            fontSize: 24
-          },
+          headerTitle: () => <CustomHeaderTitle title='Compare Systems' />, // Use custom header title
           headerStyle: {
-            backgroundColor: '#183564'
-          }
-         }} 
+            backgroundColor: '#183564',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
       />
     </DashboardStack.Navigator>
   );
@@ -52,7 +67,14 @@ function ThermalStackNavigator() {
       <ThermalStack.Screen 
         name="Thermal" 
         component={ThermalScreen} 
-        options={{ headerTitle: 'Thermal'}} 
+        options={{ 
+          headerTitle: () => <CustomHeaderTitle title='Thermal' />, // Use custom header title
+          headerStyle: {
+            backgroundColor: '#183564',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
       />
     </ThermalStack.Navigator>
   );
@@ -64,7 +86,14 @@ function PowerStackNavigator() {
             <PowerStack.Screen 
             name="Power"
             component={PowerScreen}
-            options={{ headerTitle: 'Power'}}
+            options={{ 
+              headerTitle: () => <CustomHeaderTitle title='Power'/>, // Use custom header title
+              headerStyle: {
+                backgroundColor: '#183564',
+                shadowOpacity: 0, // Remove shadow on iOS
+                borderBottomWidth: 0, // Remove border line on iOS
+              },
+            }} 
             />
         </PowerStack.Navigator>
     );

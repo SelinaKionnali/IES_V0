@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Lumi from '../assets/icons/Lumi (1).png'
 
-const GeneralUpdateComponent = () => {
+const GeneralUpdateComponent = ({updateText}) => {
    return (
     <View style={styles.columnContainer}>
     <View style={styles.rowContainer}>
             <Image source={Lumi} style={{marginRight: 20}}/>
-            <Text style={styles.text}>Pick systems to compare and I will help explain the data.</Text>
+            <Text style={styles.text}>{updateText}</Text>
     </View>
     <View style={styles.rowTextContainer}>
     <TouchableOpacity >
