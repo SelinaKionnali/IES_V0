@@ -16,7 +16,7 @@ const SolarEnergyUsage = () => {
 styles = StyleSheet.create ({
     text: {
         fontFamily: 'Text-Regular',
-        color: 'red'
+        color: '#FFF1CF'
     }
 });
 
