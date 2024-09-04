@@ -6,6 +6,8 @@ import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
 import BatteryChargeChart from '../components/BatteryChargeChart'
+import SolarEnergyUsage from '../charts/SolarEnergyUsage.js'
+
 
 const PowerScreen = () => {
     return (
@@ -14,6 +16,7 @@ const PowerScreen = () => {
           <SystemsTopTabNavigator />
           <GeneralUpdateComponent updateText="Your batteries are full and there are no significant battery drains." />
           <ProgressChartsWidget />
+          <SolarEnergyUsage />
           <BatteryChargeChart />
         </View>
         </ScrollView>
