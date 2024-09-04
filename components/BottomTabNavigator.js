@@ -1,3 +1,4 @@
+// The bottom tab navigator is a navigational component and is imported in the app.js file
 
 import * as React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';

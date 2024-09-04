@@ -1,3 +1,6 @@
+// This screen contains a navigational bar at the top, an update component, a widget and a chart.
+
+
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'

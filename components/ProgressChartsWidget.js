@@ -1,3 +1,6 @@
+// This widget component is a container which holds two charts.
+// The charts in this component have been sized in their own component files to be half the size of the screen width.
+
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import SolarProgressChart from './SolarProgressChart';

@@ -1,3 +1,5 @@
+//The dashboard screen contains an update component and a widget showing some progress charts from solar and thermal.
+
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'

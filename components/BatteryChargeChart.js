@@ -1,3 +1,5 @@
+//This is a component showing some dummy data in a progress chart which is imported in dashboard.
+
 import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';

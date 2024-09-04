@@ -1,3 +1,5 @@
+// This chart component renders some dummy data found in the page into a progress bar. This is imported in the widget component.
+
 import React from 'react';
 import { View, Dimensions, Text, StyleSheet } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
