@@ -12,12 +12,17 @@ const data = {
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#183564", // Transparent background
-  backgroundGradientTo: "#183564", // Transparent background
+  backgroundColor: "transparent",  // Additional backgroundColor setting
+  backgroundGradientFromOpacity: 0, // Transparent BG
+  backgroundGradientToOpacity: 0, // Transparent BG
   color: (opacity = 1) => `rgba(196, 154, 207, ${opacity})`,
   strokeWidth: 16, // Thickness of the ring
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // Disable shadows
+  style: {
+    borderRadius: 16,
+    backgroundColor: 'transparent', // Ensure no background for style
+  },
 };
 
 const BatteryChargeChart = () => {
@@ -31,6 +36,11 @@ const BatteryChargeChart = () => {
         radius={100}
         chartConfig={chartConfig}
         hideLegend={true}
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
+          backgroundColor: 'transparent',  // Ensure the chart style itself has transparency
+        }}
       />
       <View style={styles.overlayContainer}>
         <Text style={styles.percentageText}>74%</Text>

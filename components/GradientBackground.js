@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const GradientBackground = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const GradientBackground = ({ children }) => {
       colors={['#0F2241', '#304D76', '#324F77', '#4C698B']}
       style={styles.background}
       start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 0 }}
+      end={{ x: 0, y: 1 }}
     >
       {children}
     </LinearGradient>

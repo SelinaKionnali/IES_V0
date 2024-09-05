@@ -28,7 +28,6 @@ const PowerScreen = () => {
           flex: 1,
           justifyContent: 'top',
           alignItems: 'center',
-          backgroundColor: '#183564',
       },
       text: {
           color: '#FFF1CF',
