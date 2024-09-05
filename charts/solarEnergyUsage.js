@@ -6,6 +6,8 @@ import React from 'react'
 import {  View, StyleSheet, Dimensions } from 'react-native'
 import { LineChart } from 'react-native-chart-kit'
 import { solarData } from '../data/solarData'
+import dayjs from 'dayjs'
+import {RelativeTime} from 'dayjs/plugin/relativeTime'
 
 const chartConfig = {
     backgroundGradientFromOpacity: 0,
