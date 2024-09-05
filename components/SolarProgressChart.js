@@ -1,4 +1,5 @@
 // This chart component renders some dummy data found in the page into a progress bar. This is imported in the widget component.
+// if i want the chart to show dynamically in widget, then this component stays the same and is imported to parent component (screens) to pass the props to widget.
 
 import React from 'react';
 import { View, Dimensions, Text, StyleSheet } from 'react-native';

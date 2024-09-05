@@ -8,7 +8,6 @@ import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
 import BatteryChargeChart from '../components/BatteryChargeChart'
 import GradientBackground from '../components/GradientBackground.js'
-import ThermalProgressChart from '../components/ThermalProgressChart.js'
 
 
 const ThermalScreen = () => {
@@ -18,9 +17,7 @@ const ThermalScreen = () => {
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
-        <ProgressChartsWidget
-          thermalChart={<ThermalProgressChart />}
-        />
+        <ProgressChartsWidget />
         <BatteryChargeChart />
       </View>
       </GradientBackground>
@@ -39,4 +36,3 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
 })
-export default ThermalScreen;

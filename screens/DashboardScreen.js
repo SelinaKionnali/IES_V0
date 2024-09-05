@@ -7,6 +7,8 @@ import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import ProgressChartsWidget from '../components/ProgressChartsWidget.js'
 import BatteryChargeChart from '../components/BatteryChargeChart.js'
 import GradientBackground from '../components/GradientBackground.js'
+import SolarProgressChart from '../components/SolarProgressChart.js'
+import ThermalProgressChart from '../components/ThermalProgressChart.js'
 
 
 const DashboardScreen = () => {
@@ -16,7 +18,12 @@ const DashboardScreen = () => {
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="Pick systems to compare and I will help explain the data."/>
-        <ProgressChartsWidget />
+        <ProgressChartsWidget 
+          charts={[
+            <SolarProgressChart />,
+            <ThermalProgressChart />,
+          ]}
+        />
         <BatteryChargeChart />
        
       </View>

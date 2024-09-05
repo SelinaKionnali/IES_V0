@@ -3,32 +3,18 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import SolarProgressChart from './SolarProgressChart';
+import ThermalProgressChart from './ThermalProgressChart';
 
-
-
-const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
+const ProgressChartsWidget = () => {
   return (
     <View style={styles.container}>
-      {/* Render Solar Chart if provided */}
-      {solarChart && (
-        <View style={styles.chartContainer}>
-          {solarChart}
-        </View>
-      )}
-
-      {/* Render Thermal Chart if provided */}
-      {thermalChart && (
-        <View style={styles.chartContainer}>
-          {thermalChart}
-        </View>
-      )}
-
-      {/* Render dynamic charts array if provided */}
-      {charts.map((ChartComponent, index) => (
-        <View key={index} style={styles.chartContainer}>
-          {ChartComponent}
-        </View>
-      ))}
+      <View style={styles.chartContainer}>
+      <SolarProgressChart />
+      </View>
+      <View style={styles.chartContainer}> 
+      <ThermalProgressChart />
+      </View>
     </View>
   );
 };
@@ -45,7 +31,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 20,
     marginRight: 20,
-    
 
     // Shadow for iOS
     shadowColor: '#000',  // Color of the shadow
@@ -59,12 +44,5 @@ const styles = StyleSheet.create({
     maxWidth: '50%',  // Ensure each chart takes up to 50% of the container
     alignItems: 'center',  // Center the charts in their container
   },
-  singleChartContainer: {
-    flex: 1,
-    width: '100%',  // Allow the single chart to take full width
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
 
-export default ProgressChartsWidget;
