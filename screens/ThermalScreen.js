@@ -7,16 +7,20 @@ import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
 import BatteryChargeChart from '../components/BatteryChargeChart'
+import GradientBackground from '../components/GradientBackground.js'
+
 
 const ThermalScreen = () => {
   return (
     <ScrollView >
+      <GradientBackground>
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
         <ProgressChartsWidget />
         <BatteryChargeChart />
       </View>
+      </GradientBackground>
       </ScrollView>
   )
 }

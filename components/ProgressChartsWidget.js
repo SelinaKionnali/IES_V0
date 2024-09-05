@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around', // Space them evenly
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#183564',
+    backgroundColor: '#21436B',
     borderRadius: 20,
     marginTop: 40,
     marginBottom: 20,

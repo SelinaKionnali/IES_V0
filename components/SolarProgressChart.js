@@ -12,8 +12,8 @@ const data = {
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#183564",
-  backgroundGradientTo: "#183564",
+  backgroundGradientFromOpacity: 0, // Transparent BG
+  backgroundGradientToOpacity: 0, // Transparent BG
   color: (opacity = 1) => `rgba(255, 213, 104, ${opacity})`,  barPercentage: 1,
   useShadowColorFromDataset: false, // Disable shadows
 };

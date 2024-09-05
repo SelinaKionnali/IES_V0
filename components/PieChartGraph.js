@@ -16,10 +16,9 @@ const PieChartGraph = () => {
         width={300}
         height={220}
         chartConfig={{
-          backgroundColor: 'transparent', // Remove background color
-          backgroundGradientFrom: '#183564', // Dark blue background to match the app theme
-          backgroundGradientTo: '#183564', // Matching gradient for consistency
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // White text for visibility
+          backgroundGradientFromOpacity: 0, // Transparent BG
+          backgroundGradientToOpacity: 0, // Transparent BG
+                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // White text for visibility
         }}
         accessor="population"
         backgroundColor="transparent"

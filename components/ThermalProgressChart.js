@@ -13,8 +13,8 @@ const data = {
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#183564",
-  backgroundGradientTo: "#183564",
+  backgroundGradientFromOpacity: 0, // Transparent BG
+  backgroundGradientToOpacity: 0, // Transparent BG
   color: (opacity = 1) => `rgba(196, 154, 207, ${opacity})`,
   strokeWidth: 16, // Adjust thickness of the ring
   barPercentage: 0.5,

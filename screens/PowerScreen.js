@@ -7,11 +7,14 @@ import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
 import BatteryChargeChart from '../components/BatteryChargeChart'
 import SolarEnergyUsage from '../charts/SolarEnergyUsage.js'
+import GradientBackground from '../components/GradientBackground.js'
 
 
 const PowerScreen = () => {
     return (
       <ScrollView >
+        <GradientBackground>
+
         <View style={styles.container}>
           <SystemsTopTabNavigator />
           <GeneralUpdateComponent updateText="Your batteries are full and there are no significant battery drains." />
@@ -19,6 +22,7 @@ const PowerScreen = () => {
           <SolarEnergyUsage />
           <BatteryChargeChart />
         </View>
+        </GradientBackground>
         </ScrollView>
     )
   }
