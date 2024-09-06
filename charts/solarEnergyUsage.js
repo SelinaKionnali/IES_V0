@@ -22,7 +22,7 @@ const chartConfig = {
 const SolarEnergyUsage = () => {
     return (
         <View>
-            <Text style={styles.text}>Solar Energy Usage (Watts)</Text>
+            <Text style={styles.text}>Daily Solar Energy Usage (Watts)</Text>
             <LineChart
                 data={{
                     labels: solarData.daily.map((data) => {

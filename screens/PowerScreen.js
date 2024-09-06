@@ -9,6 +9,8 @@ import BatteryChargeChart from '../components/BatteryChargeChart'
 import SolarEnergyUsage from '../charts/SolarEnergyUsage.js'
 import GradientBackground from '../components/GradientBackground.js'
 import SolarProgressChart from '../components/SolarProgressChart.js'
+import WeeklySolarBarChart from '../charts/WeeklySolarBarChart.js'
+import EnergyUsagePiechart from '../charts/EnergyUsagePiechart.js'
 
 
 const PowerScreen = () => {
@@ -23,6 +25,8 @@ const PowerScreen = () => {
             solarChart={<SolarProgressChart />}
           />
           <SolarEnergyUsage />
+          <WeeklySolarBarChart />
+          <EnergyUsagePiechart />
           <BatteryChargeChart />
         </View>
         </GradientBackground>
