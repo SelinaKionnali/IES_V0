@@ -9,6 +9,7 @@ import ProgressChartsWidget from '../components/ProgressChartsWidget'
 import BatteryChargeChart from '../components/BatteryChargeChart'
 import GradientBackground from '../components/GradientBackground.js'
 import ThermalProgressChart from '../components/ThermalProgressChart.js'
+import DailyTempChart from '../charts/DailyTempLineChart.js'
 
 
 const ThermalScreen = () => {
@@ -21,6 +22,7 @@ const ThermalScreen = () => {
         <ProgressChartsWidget
           thermalChart={<ThermalProgressChart />}
         />
+        <DailyTempChart />
         <BatteryChargeChart />
       </View>
       </GradientBackground>

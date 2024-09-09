@@ -14,7 +14,7 @@ const chartConfig = {
 
 const WeeklySolarBarChart = () => {
     return (
-        <View>
+        <View style={styles.container}>
         <Text style={styles.text}>Weekly Solar Energy Usage (Watts)</Text>
         <BarChart
             data={{
@@ -35,8 +35,14 @@ const WeeklySolarBarChart = () => {
 styles = StyleSheet.create({
     text: {
         color: '#FFF1CF',
-        fontFamily: 'Text-Regular'
+        fontFamily: 'asl-Bold',
+        fontSize: 16
+    },
+    container: {
+        height: 300,
+        padding: 10,
     }
+
 })
 
 export default WeeklySolarBarChart;

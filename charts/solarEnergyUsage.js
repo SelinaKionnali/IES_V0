@@ -16,12 +16,13 @@ const chartConfig = {
     backgroundGradientToOpacity: 0,
     color: (opacity = 1) => `rgba(255, 213, 104, ${opacity})`,
     strokeWidth: 2, // optional, default 3
-    useShadowColorFromDataset: false // optional
+    fillShadowGradient: '#C49ACF',
+    fillShadowGradientOpacity: 1,
   };
 
 const SolarEnergyUsage = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.text}>Daily Solar Energy Usage (Watts)</Text>
             <LineChart
                 data={{
@@ -56,8 +57,14 @@ const SolarEnergyUsage = () => {
 styles = StyleSheet.create ({
     text: {
         color: '#FFF1CF',
-        fontFamily: 'Text-Regular'
-    }
+        fontFamily: 'asl-Bold',
+        fontSize: 16
+    },
+    container: {
+      height: 300,
+      padding: 20,
+  }
+
 });
 
 export default SolarEnergyUsage;
