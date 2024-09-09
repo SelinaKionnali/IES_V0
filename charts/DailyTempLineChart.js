@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart } from 'react-native-chart-kit';
-import { Dimensions, ScrollView } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
 import { thermalData } from '../data/thermalData';
 import dayjs from 'dayjs'
 
@@ -27,16 +27,16 @@ const DailyTempChart = () => {
   };
 
   return (
-    <ScrollView horizontal={true}>
+    <ScrollView >
+      <Text style={styles.text}>Daily Temperature</Text>
       <LineChart
         data={data}
         width={screenWidth} // from react-native
         height={220}
         chartConfig={{
-          backgroundColor: '#e26a00',
-          backgroundGradientFrom: '#fb8c00',
-          backgroundGradientTo: '#ffa726',
-          decimalPlaces: 1,
+            backgroundGradientFromOpacity: 0,
+            backgroundGradientToOpacity: 0,
+                  decimalPlaces: 1,
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
@@ -53,5 +53,19 @@ const DailyTempChart = () => {
     </ScrollView>
   );
 };
+
+styles = StyleSheet.create ({
+  text: {
+      color: '#FFF1CF',
+      fontFamily: 'asl-Bold',
+      fontSize: 16
+  },
+  container: {
+    height: 300,
+    padding: 20,
+}
+
+});
+
 
 export default DailyTempChart;
