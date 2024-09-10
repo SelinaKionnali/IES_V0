@@ -2,7 +2,6 @@ import React from 'react';
 import { LineChart } from 'react-native-chart-kit';
 import { Dimensions, ScrollView, StyleSheet, Text } from 'react-native';
 import { thermalData } from '../data/thermalData';
-import dayjs from 'dayjs'
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -60,10 +59,6 @@ styles = StyleSheet.create ({
       fontFamily: 'asl-Bold',
       fontSize: 16
   },
-  container: {
-    height: 300,
-    padding: 20,
-}
 
 });
 

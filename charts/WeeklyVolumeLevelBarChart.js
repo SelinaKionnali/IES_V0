@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart } from 'react-native-chart-kit';
-import { Dimensions, Text, StyleSheet } from 'react-native';
+import { Dimensions, Text, StyleSheet, ScrollView } from 'react-native';
 import { thermalData } from '../data/thermalData';
 import dayjs from 'dayjs';
 
@@ -20,7 +20,7 @@ const WeeklyVolumeChart = () => {
   };
 
   return (
-    <>
+    <ScrollView >
     <Text style={styles.text}>Weekly Volume Level</Text>
 
     <BarChart
@@ -39,7 +39,7 @@ const WeeklyVolumeChart = () => {
       }}
       verticalLabelRotation={0}
     />
-    </>
+    </ScrollView>
 
   );
 };
@@ -50,10 +50,6 @@ styles = StyleSheet.create ({
         fontFamily: 'asl-Bold',
         fontSize: 16
     },
-    container: {
-      height: 300,
-      padding: 20,
-  }
 
 });
 
