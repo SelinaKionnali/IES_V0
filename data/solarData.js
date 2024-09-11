@@ -78,3 +78,14 @@ export const solarData = {
       }
     ]
   };
+
+  export const systemStatusData = {
+    systemStatus: {
+      status: 'good',  // 'good', 'warning', 'critical'
+      message: 'All Circuits Good',
+    },
+    ghostDrainStatus: {
+      status: 'good',  // 'good', 'warning', 'critical'
+      message: 'No Drain Detected',
+    }
+  };
