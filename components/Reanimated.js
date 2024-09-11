@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Button} from 'react-native'
-import Animated, { useSharedValue } from 'react-native-reanimated';
+import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 
 export default function ReanimatedComponent() {
     const width = useSharedValue(100);
@@ -8,7 +8,7 @@ export default function ReanimatedComponent() {
 
     const handlePress = () => {
         if (width.value < 350) {
-            width.value = width.value + 50;
+            width.value = withSpring(width.value + 50);
             backgroundColor.value = 'blue'
         } else if (width.value = 350) {
             backgroundColor.value = 'red'
@@ -17,18 +17,19 @@ export default function ReanimatedComponent() {
         };
 
     const reset = () => {
-        width.value = 100;
+       width.value = withSpring(100);
         backgroundColor.value = 'violet'
 
     }
 
     return (
-        <View style={{flex: 1, alignItems: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center', margin: 20}}>
         <Animated.View
             style={{
                 width,
                 height: 100,
                 backgroundColor,
+                borderRadius: 30,
             }}
         />
         <Button onPress={handlePress} title='Click me' />
