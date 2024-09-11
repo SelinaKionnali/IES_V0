@@ -1,10 +1,35 @@
-import Svg, { Circle, Rect } from 'react-native-svg';
+import React from 'react'
+import {View, Text, StyleSheet} from 'react-native'
+import Svg, { Circle, Path } from 'react-native-svg';
 
-export default function SvgComponent(props) {
+const WaterProgressCircle = () => {
   return (
-    <Svg height="50%" width="50%" viewBox="0 0 100 100" {...props}>
-      <Circle cx="50" cy="50" r="45" stroke="blue" strokeWidth="2.5" fill="green" />
-      <Rect x="15" y="15" width="70" height="70" stroke="red" strokeWidth="2" fill="yellow" />
-    </Svg>
-  );
+    <View style={styles.container}>
+      <Text>Water Progress Circle</Text>
+      <Svg style={styles.svg}>
+      <Circle 
+      cx="100" 
+      cy="100" 
+      r="80" 
+      stroke="#FFF1CF" 
+      strokeWidth="8" 
+      fill="transparent"
+       />
+       <Path d="M 10 H 10" stroke="black" fill="none" />
+
+      </Svg>
+
+    </View>
+  )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: 200,
+    width: 200,
+    margin: 20,
+
+  },
+});
+
+export default WaterProgressCircle;
