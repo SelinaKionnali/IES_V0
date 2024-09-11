@@ -37,7 +37,7 @@ const StatusWidget = ({ title, status, message }) => {
 
 const styles = StyleSheet.create({
   widgetContainer: {
-    backgroundColor: '#1b3fa0',
+    backgroundColor: '#21436B',
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   title: {
+    fontFamily: 'Text-Regular',
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FF8C00'

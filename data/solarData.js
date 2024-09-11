@@ -76,16 +76,16 @@ export const solarData = {
         ampIn: 450,
         ampOut: 430
       }
-    ]
-  };
-
-  export const systemStatusData = {
+    ],
     systemStatus: {
       status: 'good',  // 'good', 'warning', 'critical'
       message: 'All Circuits Good',
     },
     ghostDrainStatus: {
-      status: 'good',  // 'good', 'warning', 'critical'
+      status: 'warning',  
       message: 'No Drain Detected',
     }
+
   };
+
+  

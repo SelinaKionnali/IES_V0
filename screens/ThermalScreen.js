@@ -12,6 +12,7 @@ import ThermalProgressChart from '../components/ThermalProgressChart.js'
 import DailyTempChart from '../charts/DailyTempLineChart.js'
 import WeeklyVolumeChart from '../charts/WeeklyVolumeLevelBarChart.js'
 import WaterProgressCircle from '../charts/WaterProgressCircle.js'
+import ReanimatedComponent from '../components/Reanimated.js'
 
 
 const ThermalScreen = () => {
@@ -19,6 +20,7 @@ const ThermalScreen = () => {
     <ScrollView >
       <GradientBackground>
       <View style={styles.container}>
+        <ReanimatedComponent />
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
         <ProgressChartsWidget
