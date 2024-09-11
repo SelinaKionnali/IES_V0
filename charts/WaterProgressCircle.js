@@ -15,7 +15,6 @@ const WaterProgressCircle = () => {
       strokeWidth="8" 
       fill="transparent"
        />
-       <Path d="M 10 H 10" stroke="black" fill="none" />
 
       </Svg>
 

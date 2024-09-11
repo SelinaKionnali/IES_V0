@@ -11,6 +11,7 @@ import GradientBackground from '../components/GradientBackground.js'
 import SolarProgressChart from '../components/SolarProgressChart.js'
 import WeeklySolarBarChart from '../charts/WeeklySolarBarChart.js'
 import EnergyUsagePiechart from '../charts/EnergyUsagePiechart.js'
+import StatusWidget from '../components/StatusWidget.js'
 
 
 const PowerScreen = () => {
@@ -24,6 +25,7 @@ const PowerScreen = () => {
           <ProgressChartsWidget 
             solarChart={<SolarProgressChart />}
           />
+          <StatusWidget />
           <SolarEnergyUsage />
           <WeeklySolarBarChart />
           <EnergyUsagePiechart />
