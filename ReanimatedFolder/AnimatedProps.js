@@ -1,16 +1,55 @@
-import Animated, { useSharedValue } from "react-native-reanimated";
+import Animated, { useSharedValue, withTiming, useAnimatedProps, Easing } from "react-native-reanimated";
+import {Button, View, StyleSheet} from 'react-native'
 import {Circle, Svg} from 'react-native-svg'
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const AnimatedPropsExample = () => {
-    const r = useSharedValue(10);
+    const r = useSharedValue(20);
+    
+
+    const handlePress = () => {
+        r.value += 10;
+    }
+
+    const reset = () => {
+        r.value = 10
+    }
+
+    const animatedProps = useAnimatedProps(() => ({
+        r: withTiming(r.value, {
+            duration: 1000,
+            easing: Easing.bounce
+        }),
+    }))
 
     return (
-      <Svg style={{ width: 100, height: 100 }}>
-        <AnimatedCircle cx={10} cy={10} r={r} fill={'green'}/>
+    <View style={styles.container}>
+      <Svg style={styles.svg}>
+        <AnimatedCircle 
+        cx={50} 
+        cy={50} 
+        r={r} 
+        fill={'green'}
+        animatedProps={animatedProps}
+        />
       </Svg>
+      <Button onPress={handlePress} title="click me"/>
+      <Button onPress={reset} title="reset me"/>
+
+    </View>
     )
 }
+
+const styles = StyleSheet.create ({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+      },
+      svg: {
+        height: 250,
+        width: 200,
+      },
+})
 
 export default AnimatedPropsExample;
