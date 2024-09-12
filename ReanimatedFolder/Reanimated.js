@@ -16,6 +16,7 @@ export default function ReanimatedComponent() {
         } 
         };
 
+
     const reset = () => {
        width.value = withSpring(100);
         backgroundColor.value = 'violet'
