@@ -6,7 +6,6 @@ const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const AnimatedPropsExample = () => {
     const r = useSharedValue(20);
-    
 
     const handlePress = () => {
         r.value += 10;
