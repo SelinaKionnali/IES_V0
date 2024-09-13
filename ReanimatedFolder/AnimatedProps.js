@@ -26,8 +26,8 @@ const AnimatedPropsExample = () => {
     <View style={styles.container}>
       <Svg style={styles.svg}>
         <AnimatedCircle 
-        cx={50} 
-        cy={50} 
+        cx={100} 
+        cy={100} 
         r={r} 
         fill={'green'}
         animatedProps={animatedProps}
@@ -44,6 +44,7 @@ const styles = StyleSheet.create ({
     container: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center'
       },
       svg: {
         height: 250,
