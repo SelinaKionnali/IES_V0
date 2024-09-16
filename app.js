@@ -3,6 +3,7 @@
 // The app uses the Font module to load custom fonts, and then renders the app with the loaded fonts.
 
 import * as React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -55,6 +56,7 @@ export default function App() {
   }
 
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <GradientBackground>
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <NavigationContainer>
@@ -62,6 +64,6 @@ export default function App() {
       </NavigationContainer>
     </View>
     </GradientBackground>
-
+    </GestureHandlerRootView>
   );
 }

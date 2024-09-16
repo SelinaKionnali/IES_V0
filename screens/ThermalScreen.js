@@ -16,6 +16,7 @@ import ReanimatedComponent from '../ReanimatedFolder/Reanimated.js'
 import AnimatedPropsExample from '../ReanimatedFolder/AnimatedProps.js'
 import TranslateXexample from '../ReanimatedFolder/TranslateXExample.js'
 import Shake from '../ReanimatedFolder/Shake.js'
+import Gestures from '../ReanimatedFolder/Gestures.js'
 
 
 const ThermalScreen = () => {
@@ -27,6 +28,7 @@ const ThermalScreen = () => {
         <TranslateXexample />
         <AnimatedPropsExample />
         <Shake />
+        <Gestures />
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
         <ProgressChartsWidget
