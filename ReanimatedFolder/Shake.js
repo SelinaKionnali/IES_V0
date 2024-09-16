@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Button, StyleSheet} from 'react-native'
-import Animated, { useSharedValue, useAnimatedStyle, withTiming} from 'react-native-reanimated'
+import Animated, { useSharedValue, useAnimatedStyle, withTiming, withSequence, withRepeat} from 'react-native-reanimated'
 
 const Shake = () => {
 
@@ -11,12 +11,18 @@ const Shake = () => {
     }))
 
     const OFFSET = 40;
+    const TIME = 250;
 
     const handlePress = () => {
-        offset.value = withTiming(OFFSET, { duration: 500 }, () => {
-            // Reset back after the animation ends
-            offset.value = withTiming(0, { duration: 500 });
-        });    }
+        offset.value = withSequence(
+            // start from -OFFSET
+            withTiming(-OFFSET, {duration: TIME / 2}),
+            // shake between -OFFSET and OFFSET 5 times
+            withRepeat(withTiming(OFFSET, {duration: TIME}), 5, true),
+            // go back to 0 at the end
+            withTiming(0, {duration: TIME/2})
+        );
+    }
 
     return (
         <View style={styles.container}>
