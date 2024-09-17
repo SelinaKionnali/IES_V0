@@ -42,7 +42,7 @@ export default function PanGesture() {
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.container}>
         <GestureDetector gesture={pan}>
-          <Animated.View style={[styles.circle, animatedStyles]} />
+          <Animated.View style={[styles.circle, animatedStyles]} /> 
         </GestureDetector>
       </View>
     </GestureHandlerRootView>

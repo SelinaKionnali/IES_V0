@@ -10,6 +10,7 @@ import PowerScreen from '../screens/PowerScreen';
 import lightFormIcon from '../assets/icons/lightFormIcon.png';
 import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png';
 import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png';
+import CircularComponentScreen from '../screens/CircularComponentScreen';
 
 // Create stack navigators for each tab
 const DashboardStack = createStackNavigator();
@@ -76,6 +77,10 @@ function ThermalStackNavigator() {
             borderBottomWidth: 0, // Remove border line on iOS
           },
         }} 
+      />
+      <ThermalStack.Screen 
+        name='Circular Component'
+        component={CircularComponentScreen}
       />
     </ThermalStack.Navigator>
   );

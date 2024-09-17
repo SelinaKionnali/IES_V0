@@ -2,7 +2,7 @@
 
 
 import React from 'react';
-import { View, Dimensions, Text, StyleSheet } from 'react-native';
+import { View, Dimensions, Text, StyleSheet, Button } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
 
 const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to fit two charts side by side
@@ -22,9 +22,11 @@ const chartConfig = {
 };
 
 const ThermalProgressChart = () => {
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Thermal Usage</Text>
+
       <ProgressChart
         data={data}
         width={screenWidth - 20}
@@ -75,6 +77,13 @@ const styles = StyleSheet.create({
     color: '#FFF1CF',
     fontFamily: 'Text-Light',
   },
+  btn: {
+    width: 200,
+    height: 50,
+    backgroundColor: '#fff1cf',
+    borderWidth: 2,
+    color: "black"
+  }
 });
 
 export default ThermalProgressChart;

@@ -2,7 +2,8 @@
 
 
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView, Button } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
@@ -21,6 +22,9 @@ import PanGesture from '../ReanimatedFolder/PanGesture.js'
 
 
 const ThermalScreen = () => {
+
+  const navigation = useNavigation();
+
   return (
     <ScrollView >
       <GradientBackground>
@@ -33,6 +37,10 @@ const ThermalScreen = () => {
         <PanGesture />
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
+        <Button
+        title="Go to Circular Component"
+        onPress={() => navigation.navigate('Circular Component')}
+        />
         <ProgressChartsWidget
           thermalChart={<ThermalProgressChart />}
         />
