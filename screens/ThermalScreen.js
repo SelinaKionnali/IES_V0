@@ -19,11 +19,16 @@ import TranslateXexample from '../ReanimatedFolder/TranslateXExample.js'
 import Shake from '../ReanimatedFolder/Shake.js'
 import Gestures from '../ReanimatedFolder/Gestures.js'
 import PanGesture from '../ReanimatedFolder/PanGesture.js'
+import { solarData } from '../data/solarData.js';
+import ProgressCircleFromData from '../ReanimatedFolder/ProgressCircleFromData.js';
 
 
 const ThermalScreen = () => {
 
   const navigation = useNavigation();
+
+  const weeklySolarData = solarData.weekly[0];
+  
 
   return (
     <ScrollView >
@@ -44,9 +49,9 @@ const ThermalScreen = () => {
         <ProgressChartsWidget
           thermalChart={<ThermalProgressChart />}
         />
+        <ProgressCircleFromData wattIn={weeklySolarData.wattIn} wattOut={weeklySolarData.wattOut}/>
         <DailyTempChart />
         <WeeklyVolumeChart />
-        <WaterProgressCircle />
         <BatteryChargeChart />
       </View>
       </GradientBackground>

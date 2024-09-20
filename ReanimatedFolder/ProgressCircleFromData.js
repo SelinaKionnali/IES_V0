@@ -1,6 +1,5 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Dimensions, StyleSheet, View, Text } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { useAnimatedProps, useDerivedValue, useSharedValue, withTiming } from 'react-native-reanimated';
 import { ReText } from 'react-native-redash';
 import Svg, { Circle } from 'react-native-svg'
@@ -18,14 +17,17 @@ const R = CIRCLE_LENGTH / (2*Math.PI)
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export default function CircularProgressBar() {
+export default function ProgressCircleFromData({ wattIn, wattOut}) {
+
+    const getStatusColor = (status) => {}
+
 
     const progress = useSharedValue(0);
 
-// Remove useCallback temporarily for testing
-const onPress = useCallback(() => {
-    progress.value = withTiming(progress.value > 0 ? 0 : 1, {duration: 2000});
-}, [])
+    useEffect(() => {
+        const percentage = wattIn > 0 ? wattOut / wattIn : 0;
+        progress.value = withTiming(percentage, {duration: 2000});
+    }, [wattIn, wattOut])
 
     const animatedProps = useAnimatedProps(() => ({
         strokeDashoffset: CIRCLE_LENGTH * (1 - progress.value) // 1- changes direction of animation
@@ -33,7 +35,8 @@ const onPress = useCallback(() => {
 
     const progressText = useDerivedValue(() => {
         return `${Math.floor(progress.value * 100)}%`;
-    })
+    });
+
 
     return (
         <View style={styles.container}>
@@ -60,10 +63,8 @@ const onPress = useCallback(() => {
                 fill={BACKGROUND_COLOR}
                 />
             </Svg>
+            <Text style={styles.text}>{wattIn/100} and {wattOut/100}</Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={onPress}>
-                <Text style={styles.buttonText}>Run</Text>
-            </TouchableOpacity>
         </View>
     )
 }
@@ -86,20 +87,7 @@ const styles = StyleSheet.create({
         color: 'rgba(255, 241, 207, 0.5)',
         textAlign: 'center',
         },
-        button: {
-            bottom: 20,
-            width: width * 0.7,    
-            height: 60,
-            backgroundColor: BACKGROUND_STROKE_COLOR,
-            borderRadius: 30,
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
-        buttonText: {
-            fontSize: 25,
-            color: 'rgba(255, 241, 207, 0.5)',
-            fontFamily: 'Text-Regular',
-
-        }
-    
+    text: {
+        color: 'white'
+    }
 })
