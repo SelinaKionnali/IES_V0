@@ -10,7 +10,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import BottomTabNavigator from './components/BottomTabNavigator';
-import GradientBackground from './components/GradientBackground';
 import 'react-native-reanimated';
 
 
@@ -57,13 +56,11 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-    <GradientBackground>
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <NavigationContainer>
         <BottomTabNavigator />  
       </NavigationContainer>
     </View>
-    </GradientBackground>
     </GestureHandlerRootView>
   );
 }
