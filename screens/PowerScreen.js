@@ -16,6 +16,10 @@ import {solarData} from '../data/solarData.js'
 
 
 const PowerScreen = () => {
+
+  const wattInToday = solarData.daily
+
+
     return (
       <ScrollView >
         <GradientBackground>

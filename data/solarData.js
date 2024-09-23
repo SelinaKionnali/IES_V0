@@ -44,7 +44,7 @@ export const solarData = {
       },
       {
         sensorId: "solar001",
-        timestamp: "2024-09-02",
+        timestamp: "2024-08-30",
         wattIn: 32000,
         wattOut: 28500,
         ampIn: 95,
@@ -54,7 +54,7 @@ export const solarData = {
     monthly: [
       {
         sensorId: "solar001",
-        timestamp: "2024-08-01",
+        timestamp: "2024-08-31",
         wattIn: 125000,
         wattOut: 115000,
         ampIn: 410,

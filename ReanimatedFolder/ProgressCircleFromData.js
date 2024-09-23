@@ -17,7 +17,7 @@ const R = CIRCLE_LENGTH / (2*Math.PI)
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export default function ProgressCircleFromData({ wattIn, wattOut}) {
+export default function ProgressCircleFromData({ wattIn, wattOut, status}) {
 
     const getStatusColor = (status) => {}
 

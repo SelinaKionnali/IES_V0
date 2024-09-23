@@ -1,0 +1,194 @@
+[
+    {
+        "hour": "1",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    },
+    {
+        "hour": "2",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    },
+    {
+        "hour": "3",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    },
+    {
+        "hour": "4",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    },
+    {
+        "hour": "5",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    },
+    {
+        "hour": "6",
+        "percentage": "0.08",
+        "consumption": "392.50688",
+        "heat recovery": "255.129472",
+        "body heat W": "240",
+        "total recovery": "495.129472"
+    },
+    {
+        "hour": "7",
+        "percentage": "0.12",
+        "consumption": "588.76032",
+        "heat recovery": "382.694208",
+        "body heat W": "240",
+        "total recovery": "622.694208"
+    },
+    {
+        "hour": "8",
+        "percentage": "0.05",
+        "consumption": "245.3168",
+        "heat recovery": "159.45592",
+        "body heat W": "240",
+        "total recovery": "399.45592"
+    },
+    {
+        "hour": "9",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "10",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "11",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "12",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "13",
+        "percentage": "0.12",
+        "consumption": "588.76032",
+        "heat recovery": "382.694208",
+        "body heat W": "50",
+        "total recovery": "432.694208"
+    },
+    {
+        "hour": "14",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "15",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "16",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "17",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "50",
+        "total recovery": "113.782368"
+    },
+    {
+        "hour": "18",
+        "percentage": "0.03",
+        "consumption": "147.19008",
+        "heat recovery": "95.673552",
+        "body heat W": "50",
+        "total recovery": "145.673552"
+    },
+    {
+        "hour": "19",
+        "percentage": "0.15",
+        "consumption": "735.9504",
+        "heat recovery": "478.36776",
+        "body heat W": "50",
+        "total recovery": "528.36776"
+    },
+    {
+        "hour": "20",
+        "percentage": "0.03",
+        "consumption": "147.19008",
+        "heat recovery": "95.673552",
+        "body heat W": "240",
+        "total recovery": "335.673552"
+    },
+    {
+        "hour": "21",
+        "percentage": "0.03",
+        "consumption": "147.19008",
+        "heat recovery": "95.673552",
+        "body heat W": "240",
+        "total recovery": "335.673552"
+    },
+    {
+        "hour": "22",
+        "percentage": "0.15",
+        "consumption": "735.9504",
+        "heat recovery": "478.36776",
+        "body heat W": "240",
+        "total recovery": "718.36776"
+    },
+    {
+        "hour": "23",
+        "percentage": "0.02",
+        "consumption": "98.12672",
+        "heat recovery": "63.782368",
+        "body heat W": "240",
+        "total recovery": "303.782368"
+    },
+    {
+        "hour": "24",
+        "percentage": "0.01",
+        "consumption": "49.06336",
+        "heat recovery": "31.891184",
+        "body heat W": "240",
+        "total recovery": "271.891184"
+    }
+]
