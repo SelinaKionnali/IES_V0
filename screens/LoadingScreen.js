@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
-const LoadingScreen () => {
+const LoadingScreen = () => {
 
     return (
         <View>
@@ -17,3 +17,5 @@ const styles = StyleSheet.create({
         fontSize: 30
     }
 })
+
+export default LoadingScreen;

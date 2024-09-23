@@ -9,8 +9,8 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import BottomTabNavigator from './components/BottomTabNavigator';
 import 'react-native-reanimated';
+import AppNavigator from './navigators/AppNavigator';
 
 
 
@@ -58,7 +58,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <NavigationContainer>
-        <BottomTabNavigator />  
+        <AppNavigator />
       </NavigationContainer>
     </View>
     </GestureHandlerRootView>

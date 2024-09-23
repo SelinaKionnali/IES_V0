@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import DashboardScreen from '../screens/DashboardScreen';
 import ThermalScreen from '../screens/ThermalScreen';
