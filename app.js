@@ -1,23 +1,22 @@
-// This is the main file of the app. It is responsible for loading the fonts and other resources, and then rendering the app.
-// The app uses the SplashScreen module to prevent the splash screen from hiding automatically until the app is ready to render.
-// The app uses the Font module to load custom fonts, and then renders the app with the loaded fonts.
-
 import * as React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import 'react-native-reanimated';
-import AppNavigator from './navigators/AppNavigator';
-
-
+import LoadingScreen from './screens/LoadingScreen';
+import BottomTabNavigator from './components/BottomTabNavigator';
 
 SplashScreen.preventAutoHideAsync();
 
+const Stack = createStackNavigator(); // Create a stack navigator for loading and main navigation
+
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track if the user is logged in
 
   useEffect(() => {
     async function prepare() {
@@ -31,15 +30,15 @@ export default function App() {
           'asl-regular': require('./assets/fonts/AveriaSansLibre-Regular.ttf'),
           'asl-Light': require('./assets/fonts/AveriaSansLibre-Light.ttf'),
           'asl-Bold': require('./assets/fonts/AveriaSansLibre-Bold.ttf')
-           });
+        });
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate loading time
       } catch (e) {
         console.warn(e);
       } finally {
         setAppIsReady(true);
       }
-    };
+    }
 
     prepare();
   }, []);
@@ -51,16 +50,31 @@ export default function App() {
   }, [appIsReady]);
 
   if (!appIsReady) {
-    return null;
+    return null; // Show nothing until the app is ready
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
-    </View>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            {!isLoggedIn ? (
+              <Stack.Screen
+                name="Loading"
+                options={{ headerShown: false }} 
+              >
+                {(props) => <LoadingScreen {...props} setIsLoggedIn={setIsLoggedIn} />} 
+              </Stack.Screen>
+            ) : (
+              <Stack.Screen
+                name="MainApp"
+                component={BottomTabNavigator}
+                options={{ headerShown: false }} 
+              />
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
     </GestureHandlerRootView>
   );
 }
