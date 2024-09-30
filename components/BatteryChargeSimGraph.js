@@ -1,11 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
-import { LineChart } from 'react-native-chart-kit'
-import BaseThermalLoad from '../data/BaseThermalLoad.json'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { LineChart } from 'react-native-chart-kit';
+import BaseThermalLoad from '../data/BaseThermalLoad.json'; // Ensure the path is correct
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
-
+const screenWidth = Dimensions.get('screen').width; // Get the correct screen width
 
 dayjs.extend(relativeTime); // Extend Day.js with the plugin
 
@@ -16,75 +16,127 @@ const chartConfig = {
     strokeWidth: 2, // optional, default 3
     fillShadowGradient: '#C49ACF',
     fillShadowGradientOpacity: 1,
-  };
+};
 
 
 const BatteryChargeSimGraph = () => {
-    return (
+    const [chartData, setChartData] = useState(null);
+
+
+    useEffect(() => {
+        try {
+          // Extracting and logging inside useEffect
+          const hours = BaseThermalLoad.map((data) => `Hour ${data.hour}`);
+          const percentages = BaseThermalLoad.map((data) => parseFloat(data.percentage) * 100);
+    
+          // Set chart data
+          setChartData({
+            labels: hours,
+            datasets: [
+              {
+                data: percentages,
+                strokeWidth: 2, // Optional: line width
+              }
+            ]
+          });
+    
+        } catch (error) {
+          console.error('Error inside useEffect:', error);
+        }
+      }, []); // Empty dependency array to run once on mount
+    
+      // Render a placeholder or loading text if chartData is still null
+      if (!chartData) {
+        return <Text>Loading Chart...</Text>;
+      }
+
+        return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
-                <Text style={styles.text}>State of Charge</Text>
-                <Text style={styles.text}>Your battery level over time</Text>
+                <Text style={styles.title}>State of Charge</Text>
+                <Text style={styles.subtitle}>Your battery level over time</Text>
             </View>
             <View style={styles.lineGraphContainer}>
-            <LineChart
-                data={{
-                    labels: solarData.daily.map((data) => {
-                        const date = dayjs(data.timestamp)
-                        return date.format('hh.mm A'); // Simply show day of the week (Mon, Tue, Wed)
-                 } ),
-                 datasets: [
-                    {
-                      data: solarData.daily.map((data) => data.wattIn),
-                      color: (opacity = 1) => `rgba(255, 213, 104, ${opacity})`, 
-                      label: 'Watt In'
-                    },
-                    {
-                      data: solarData.daily.map((data) => data.wattOut),
-                      color: (opacity = 1) => `rgba(196, 154, 207, ${opacity})`,
-                      label: 'Watt Out'
-                    }
-                  ],
-                  legend: ['Watt In', 'Watt Out'] // Labels for the lines in the chart
-                    }}
-                    width={Dimensions.get('window').width - 40}
+                <LineChart
+                    data={chartData}
+                    width={screenWidth - 60} 
                     height={220}
-                    yAxisSuffix="W"
                     chartConfig={chartConfig}
-                    
-            />
+                    bezier 
+                    yAxisSuffix="%"
+                />
+            </View>
+            <View style={styles.btnContainer}>
+                <TouchableOpacity style={styles.btn}>
+                    <Text style={styles.btnText}>&lt;6 hrs</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn}>
+                    <Text style={styles.btnText}>6 - 12 hrs</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn}>
+                    <Text style={styles.btnText}>12 - 18 hrs</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.btn}>
+                    <Text style={styles.btnText}>18 - 24 hrs</Text>
+                </TouchableOpacity>
 
             </View>
-
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
-        height: 200,
-        alignItems: 'center',
+        alignItems: 'flex-start',
+        width: screenWidth - 20,
         justifyContent: 'center',
-        padding: 50,
+        padding: 12,
         marginBottom: 20,
         borderRadius: 30,
         backgroundColor: '#21436B',
         shadowColor: 'rgba(0, 0, 0, 0.8)', 
-        shadowOffset: {width: 2, height: 2},
+        shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.7, 
         shadowRadius: 5,
     },
     textContainer: {
-        borderWidth:2,
+        marginBottom: 10,
     },
-    text: {
+    title: {
         fontFamily: 'Text-Regular',
         fontSize: 16,
-        color: '#fff1cf'
+        color: '#FFB45C',
+    },
+    subtitle: {
+        fontFamily: 'Text-Regular',
+        fontSize: 16,
+        color: '#9AAFCF',
     },
     lineGraphContainer: {
-        borderWidth: 2
+        borderWidth: 2,
+        borderColor: '#FFB45C',
+        borderRadius: 10,
+        padding: 10,
+        margin: 'auto'
+    },
+    btnContainer: {
+        backgroundColor: '#21436B',
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderColor: '#FFB45C',
+        borderRadius: 10,
+        padding: 8,
+        gap: 8,
+        margin: 'auto'
+    },
+    btn: {
+        padding: 10,
+
+    },
+    btnText: {
+        color: '#9AAFCF',
+        fontFamily: 'Text-Regular'
     }
-})
+});
 
 export default BatteryChargeSimGraph;
