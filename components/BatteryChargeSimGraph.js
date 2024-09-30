@@ -12,9 +12,9 @@ dayjs.extend(relativeTime); // Extend Day.js with the plugin
 const chartConfig = {
     backgroundGradientFromOpacity: 0,
     backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => `rgba(255, 213, 104, ${opacity})`,
+    color: (opacity = 1) => `rgba(255, 180, 92, ${opacity})`,
     strokeWidth: 2, // optional, default 3
-    fillShadowGradient: '#C49ACF',
+    fillShadowGradient: '#ff9700',
     fillShadowGradientOpacity: 1,
 };
 
@@ -42,7 +42,7 @@ const BatteryChargeSimGraph = () => {
     const handleEighteen = () => {
         const hours = BaseThermalLoad.map((data) => `${data.hour}`);
         if (hours.includes("13") || hours.includes("14") || hours.includes("15") || hours.includes("16") || hours.includes("17") || hours.includes("18")) {
-            setChartTimeframe('12 - 18 hours');
+            setChartTimeframe('12-18 hours');
             console.log(chartTimeframe)
         }
     }
@@ -50,7 +50,7 @@ const BatteryChargeSimGraph = () => {
     const handleTwentyFour = () => {
         const hours = BaseThermalLoad.map((data) => `${data.hour}`);
         if (hours.includes("19") || hours.includes("20") || hours.includes("21") || hours.includes("22") || hours.includes("23") || hours.includes("24")) {
-            setChartTimeframe('18 - 24 hours');
+            setChartTimeframe('18-24 hours');
             console.log(chartTimeframe)
         }
     }
@@ -59,10 +59,30 @@ const BatteryChargeSimGraph = () => {
 
     useEffect(() => {
         try {
-          // Extracting and logging inside useEffect
-          const hours = BaseThermalLoad.map((data) => `Hour ${data.hour}`);
-          const percentages = BaseThermalLoad.map((data) => parseFloat(data.percentage) * 100);
-    
+          let filteredData;
+      
+          // Filter the data based on chartTimeframe
+          switch (chartTimeframe) {
+            case '6 hours':
+              filteredData = BaseThermalLoad.filter((data) => data.hour <= 6);
+              break;
+            case '6-12 hours':
+              filteredData = BaseThermalLoad.filter((data) => data.hour > 6 && data.hour <= 12);
+              break;
+            case '12-18 hours':
+              filteredData = BaseThermalLoad.filter((data) => data.hour > 12 && data.hour <= 18);
+              break;
+            case '18-24 hours':
+              filteredData = BaseThermalLoad.filter((data) => data.hour > 18 && data.hour <= 24);
+              break;
+            default:
+              filteredData = BaseThermalLoad; // Default to all data if no match
+              break;
+          }
+      
+          const hours = filteredData.map((data) => `${data.hour}`);
+          const percentages = filteredData.map((data) => parseFloat(data.percentage) * 100);
+      
           // Set chart data
           setChartData({
             labels: hours,
@@ -73,11 +93,11 @@ const BatteryChargeSimGraph = () => {
               }
             ]
           });
-    
+      
         } catch (error) {
           console.error('Error inside useEffect:', error);
         }
-      }, []); // Empty dependency array to run once on mount
+      }, [chartTimeframe]); // Add chartTimeframe as a dependency
     
       // Render a placeholder or loading text if chartData is still null
       if (!chartData) {
