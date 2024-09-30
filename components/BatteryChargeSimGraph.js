@@ -19,7 +19,7 @@ const chartConfig = {
 };
 
 
-const BatteryChargeSimGraph = () => {
+const BatteryChargeSimGraph = ({title, subtitle}) => {
     const [chartData, setChartData] = useState(null);
     const [chartTimeframe, setChartTimeframe] = useState('6 hours');
     const [activeButton, setActiveButton] = useState('6 hours');
@@ -108,8 +108,8 @@ const BatteryChargeSimGraph = () => {
         return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
-                <Text style={styles.title}>State of Charge</Text>
-                <Text style={styles.subtitle}>Your battery level over time</Text>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.subtitle}>{subtitle}</Text>
             </View>
             <View style={styles.lineGraphContainer}>
                 <LineChart

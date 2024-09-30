@@ -27,7 +27,10 @@ const DashboardScreen = () => {
           ]}
         />
         <BatteryChargeChart />
-        <BatteryChargeSimGraph />
+        <BatteryChargeSimGraph 
+        title="State of Charge"
+        subtitle="Your battery level over time"
+        />
        
       </View>
       </GradientBackground>
