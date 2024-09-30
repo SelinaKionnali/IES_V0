@@ -21,6 +21,40 @@ const chartConfig = {
 
 const BatteryChargeSimGraph = () => {
     const [chartData, setChartData] = useState(null);
+    const [chartTimeframe, setChartTimeframe] = useState('6 hours');
+
+    const handleSix = () => {
+        const hours = BaseThermalLoad.map((data) => `${data.hour}`);
+        if (hours.includes("1") || hours.includes("2") || hours.includes("3") || hours.includes("4") || hours.includes("5") || hours.includes("6")) {
+            setChartTimeframe('6 hours');
+            console.log(chartTimeframe)
+        }
+    }
+
+    const handleTwelve = () => {
+        const hours = BaseThermalLoad.map((data) => `${data.hour}`);
+        if (hours.includes("7") || hours.includes("8") || hours.includes("9") || hours.includes("10") || hours.includes("11") || hours.includes("12")) {
+            setChartTimeframe('6-12 hours');
+            console.log(chartTimeframe)
+        }
+    }
+
+    const handleEighteen = () => {
+        const hours = BaseThermalLoad.map((data) => `${data.hour}`);
+        if (hours.includes("13") || hours.includes("14") || hours.includes("15") || hours.includes("16") || hours.includes("17") || hours.includes("18")) {
+            setChartTimeframe('12 - 18 hours');
+            console.log(chartTimeframe)
+        }
+    }
+
+    const handleTwentyFour = () => {
+        const hours = BaseThermalLoad.map((data) => `${data.hour}`);
+        if (hours.includes("19") || hours.includes("20") || hours.includes("21") || hours.includes("22") || hours.includes("23") || hours.includes("24")) {
+            setChartTimeframe('18 - 24 hours');
+            console.log(chartTimeframe)
+        }
+    }
+
 
 
     useEffect(() => {
@@ -67,16 +101,16 @@ const BatteryChargeSimGraph = () => {
                 />
             </View>
             <View style={styles.btnContainer}>
-                <TouchableOpacity style={styles.btn}>
-                    <Text style={styles.btnText}>&lt;6 hrs</Text>
+                <TouchableOpacity style={styles.btn} onPress={handleSix}>
+                    <Text style={styles.btnText}>&lt; 6 hrs</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={handleTwelve}>
                     <Text style={styles.btnText}>6 - 12 hrs</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={handleEighteen}>
                     <Text style={styles.btnText}>12 - 18 hrs</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn} onPress={handleTwentyFour}>
                     <Text style={styles.btnText}>18 - 24 hrs</Text>
                 </TouchableOpacity>
 
