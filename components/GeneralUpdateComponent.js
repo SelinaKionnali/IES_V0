@@ -5,10 +5,10 @@ import Lumi from '../assets/icons/Lumi (1).png'
 const GeneralUpdateComponent = ({updateText}) => {
    return (
     <View style={styles.columnContainer}>
-    <View style={styles.rowContainer}>
+        <View style={styles.rowContainer}>
             <Image source={Lumi} style={{marginRight: 20}}/>
             <Text style={styles.text}>{updateText}</Text>
-    </View>
+        </View>
     <View style={styles.rowTextContainer}>
     <TouchableOpacity >
             <Text style={styles.linkText}>Full update</Text>
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
         height: 120,
         backgroundColor: '#4C698B',
         borderRadius: 30,
-        padding: 20
+        padding: 20,
+        borderWidth: 1
     },
     rowContainer: {
        display: 'flex',
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     rowTextContainer: {
         display: 'flex',
         flexDirection: 'row',
-        marginLeft: 20,
+        marginLeft: 70,
         marginTop: 10
      },
  
@@ -54,8 +55,8 @@ const styles = StyleSheet.create({
     linkText: {
         color: '#FFF1CF',
         fontFamily: 'Text-Light',
-        width: 200,
-        textDecorationLine: 'underline'
+        width: 140,
+        textDecorationLine: 'underline',
     }
 
 })

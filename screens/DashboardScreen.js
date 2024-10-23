@@ -16,7 +16,6 @@ const width = Dimensions.get('screen')
 const DashboardScreen = () => {
   return (
     <ScrollView >
-       <GradientBackground>
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="Pick systems to compare and I will help explain the data."/>
@@ -33,7 +32,6 @@ const DashboardScreen = () => {
         />
        
       </View>
-      </GradientBackground>
       </ScrollView>
   )
 }
@@ -44,7 +42,9 @@ const styles = StyleSheet.create({
         width: width,
         justifyContent: 'top',
         alignItems: 'center',
-        borderWidth: 3
+        borderWidth: 3,
+        backgroundColor: '#0E1E38'
+        
     },
     text: {
         color: '#FFF1CF',

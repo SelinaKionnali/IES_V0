@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { BlurView } from 'expo-blur';
 import DashboardScreen from '../screens/DashboardScreen';
 import ThermalScreen from '../screens/ThermalScreen';
 import PowerScreen from '../screens/PowerScreen';
@@ -12,6 +12,10 @@ import lightFormIcon from '../assets/icons/lightFormIcon.png';
 import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png';
 import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png';
 import CircularComponentScreen from '../screens/CircularComponentScreen';
+import hamburger from '../assets/icons/hamburger.png'
+import lumi2 from '../assets/icons/lumi2.png'
+import mktPlace from '../assets/icons/mktPlaceIcon.png'
+import profile3 from '../assets/icons/profile3.png'
 
 // Create stack navigators for each tab
 const DashboardStack = createStackNavigator();
@@ -30,6 +34,7 @@ function CustomHeaderTitle({ title }) {
 const styles = StyleSheet.create({
   headerTitleContainer: {
     alignItems: 'center',
+    backgroundColor: '#0E1E38'
   },
   headerTitle: {
     fontFamily: 'asl-regular',
@@ -54,7 +59,7 @@ function DashboardStackNavigator() {
         options={{ 
           headerTitle: () => <CustomHeaderTitle title='Compare Systems' />, // Use custom header title
           headerStyle: {
-            backgroundColor: '#183564',
+            backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
             borderBottomWidth: 0, // Remove border line on iOS
           },
@@ -137,27 +142,32 @@ export default function BottomTabNavigator() {
             tabBarActiveTintColor: '#ff9700',
             tabBarInactiveTintColor: 'gray',
             headerShown: false,
-      })}
+            tabBarStyle: { 
+              backgroundColor: '#0E1E38',
+              borderTopWidth: 0
+             },
+            })}
       
-    >
+             >
       <Tab.Screen 
         name="DashboardTab" 
         component={DashboardStackNavigator} 
         options={{ 
-            tabBarLabel: 'Dashboard', 
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen 
         name="ThermalTab" 
         component={ThermalStackNavigator} 
         options={{ 
-            tabBarLabel: 'Thermal',
+          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen 
       name="PowerTab"
       component={PowerStackNavigator}
-      options={{ tabBarLabel: 'Power',
+      options={{ 
+        tabBarShowLabel: false,
 
       }}
       />

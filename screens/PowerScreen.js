@@ -1,7 +1,7 @@
 // This screen contains a navigational bar at the top, an update component, a widget and a chart.
 
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../components/ProgressChartsWidget'
@@ -13,6 +13,7 @@ import WeeklySolarBarChart from '../charts/WeeklySolarBarChart.js'
 import EnergyUsagePiechart from '../charts/EnergyUsagePiechart.js'
 import StatusWidget from '../components/StatusWidget.js'
 import {solarData} from '../data/solarData.js'
+import PowerToggle from '../components/PowerToggle.js'
 
 
 const PowerScreen = () => {
@@ -30,6 +31,7 @@ const PowerScreen = () => {
           <ProgressChartsWidget 
             solarChart={<SolarProgressChart />}
           />
+          <PowerToggle />
           <View style={styles.widgetContainer}>
           <StatusWidget 
           title="System Status" 

@@ -58,10 +58,13 @@ const styles = StyleSheet.create ({
         marginHorizontal: 5,
       },
       container: {
-        width: screenWidth,
-        height: 120,
+        width: screenWidth -10,
+        height: 70,
         padding: 10,
-        paddingTop: 20
+        backgroundColor: '#183564',
+        borderRadius: 100,
+        marginVertical: 20,
+
       }
 })
 

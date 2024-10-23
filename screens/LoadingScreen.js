@@ -41,20 +41,14 @@ const styles = StyleSheet.create({
     left: 0, 
     justifyContent: 'space-between', 
     alignItems: 'center', 
-    borderWidth: 2,
-    borderColor: 'green'
   },
   topContainer: {
     height: height / 2,
-    borderWidth: 3,
-    borderColor: 'purple',
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
   bottomContainer: {
     height: height / 2,
-    borderWidth: 3,
-    borderColor: 'purple',
     justifyContent: 'space-around',
     gap: 120,
   },
