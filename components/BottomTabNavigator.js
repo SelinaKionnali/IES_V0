@@ -4,10 +4,11 @@ import * as React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { BlurView } from 'expo-blur';
 import DashboardScreen from '../screens/DashboardScreen';
 import ThermalScreen from '../screens/ThermalScreen';
 import PowerScreen from '../screens/PowerScreen';
+import LumiScreen from '../screens/LumiScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import lightFormIcon from '../assets/icons/lightFormIcon.png';
 import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png';
 import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png';
@@ -16,9 +17,15 @@ import hamburger from '../assets/icons/hamburger.png'
 import lumi2 from '../assets/icons/lumi2.png'
 import mktPlace from '../assets/icons/mktPlaceIcon.png'
 import profile3 from '../assets/icons/profile3.png'
+import ProfileScreen from '../screens/ProfileScreen';
+import MarketplaceScreen from '../screens/MarketplaceScreen';
 
 // Create stack navigators for each tab
+const ProfileStack = createStackNavigator();
+const MarketplaceStack = createStackNavigator();
 const DashboardStack = createStackNavigator();
+const LumiStack = createStackNavigator();
+const SettingsStack = createStackNavigator()
 const ThermalStack = createStackNavigator();
 const PowerStack = createStackNavigator();
 
@@ -31,24 +38,45 @@ function CustomHeaderTitle({ title }) {
   );
 }
 
-const styles = StyleSheet.create({
-  headerTitleContainer: {
-    alignItems: 'center',
-    backgroundColor: '#0E1E38'
-  },
-  headerTitle: {
-    fontFamily: 'asl-regular',
-    color: '#FFF1CF',
-    fontSize: 24,
-  },
-  headerUnderline: {
-    marginTop: 8, // Adjust the spacing between the title and the underline
-    width: 120,    // Length of the underline
-    height: 4,    // Thickness of the underline
-    backgroundColor: '#ff9700', // Color of the underline
-    borderRadius: 30
-  },
-});
+
+function ProfileStackNavigator() {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen 
+        name="Profile" 
+        component={ProfileScreen} 
+        options={{ 
+          headerTitle: () => <CustomHeaderTitle title='Profile' />, // Use custom header title
+          headerStyle: {
+            backgroundColor: '#0E1E38',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
+      />
+    </ProfileStack.Navigator>
+  );
+}
+
+function MarketplaceStackNavigator() {
+  return (
+    <MarketplaceStack.Navigator>
+      <MarketplaceStack.Screen 
+        name="Marketplace" 
+        component={MarketplaceScreen} 
+        options={{ 
+          headerTitle: () => <CustomHeaderTitle title='Marketplace' />, // Use custom header title
+          headerStyle: {
+            backgroundColor: '#0E1E38',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
+      />
+    </MarketplaceStack.Navigator>
+  );
+}
+
 
 function DashboardStackNavigator() {
   return (
@@ -69,6 +97,45 @@ function DashboardStackNavigator() {
   );
 }
 
+function LumiStackNavigator() {
+  return (
+    <LumiStack.Navigator>
+      <LumiStack.Screen 
+        name="Lumi" 
+        component={LumiScreen} 
+        options={{ 
+          headerTitle: () => <CustomHeaderTitle title='Lumi' />, // Use custom header title
+          headerStyle: {
+            backgroundColor: '#0E1E38',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
+      />
+    </LumiStack.Navigator>
+  );
+}
+
+function SettingsStackNavigator() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen 
+        name="Settings" 
+        component={SettingsScreen} 
+        options={{ 
+          headerTitle: () => <CustomHeaderTitle title='Settings' />, // Use custom header title
+          headerStyle: {
+            backgroundColor: '#0E1E38',
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderBottomWidth: 0, // Remove border line on iOS
+          },
+        }} 
+      />
+    </SettingsStack.Navigator>
+  );
+}
+
+
 function ThermalStackNavigator() {
   return (
     <ThermalStack.Navigator>
@@ -78,7 +145,7 @@ function ThermalStackNavigator() {
         options={{ 
           headerTitle: () => <CustomHeaderTitle title='Thermal' />, // Use custom header title
           headerStyle: {
-            backgroundColor: '#183564',
+            backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
             borderBottomWidth: 0, // Remove border line on iOS
           },
@@ -101,7 +168,7 @@ function PowerStackNavigator() {
             options={{ 
               headerTitle: () => <CustomHeaderTitle title='Power'/>, // Use custom header title
               headerStyle: {
-                backgroundColor: '#183564',
+                backgroundColor: '#0E1E38',
                 shadowOpacity: 0, // Remove shadow on iOS
                 borderBottomWidth: 0, // Remove border line on iOS
               },
@@ -120,12 +187,16 @@ export default function BottomTabNavigator() {
         tabBarIcon: ({ color, size}) => {
             let iconSource;
 
-            if (route.name === 'DashboardTab') {
+            if (route.name === 'ProfileTab') {
+                iconSource = profile3
+            } else if (route.name === 'MarketplaceTab') {
+                iconSource = mktPlace
+            } else if (route.name === 'DashboardTab') {
                 iconSource = lightFormIcon
-            } else if (route.name === 'ThermalTab') {
-                iconSource = heatSystemsIcon;
-            } else if (route.name === 'PowerTab') {
-                iconSource = powerSystemsIcon;
+            } else if (route.name === 'LumiTab') {
+                iconSource = lumi2;
+            } else if (route.name === 'SettingsTab') {
+                iconSource = hamburger;
             
             }
             
@@ -133,14 +204,14 @@ export default function BottomTabNavigator() {
                 <Image
                   source={iconSource}
                   style={{
-                    width: size,
-                    height: size,
+                    width: size + 10,
+                    height: size + 10,
                     tintColor: color,
                   }}
                 />
               );            },
             tabBarActiveTintColor: '#ff9700',
-            tabBarInactiveTintColor: 'gray',
+            tabBarInactiveTintColor: '#fff1cf',
             headerShown: false,
             tabBarStyle: { 
               backgroundColor: '#0E1E38',
@@ -150,6 +221,20 @@ export default function BottomTabNavigator() {
       
              >
       <Tab.Screen 
+        name="ProfileTab" 
+        component={ProfileStackNavigator} 
+        options={{ 
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tab.Screen 
+        name="MarketplaceTab" 
+        component={MarketplaceStackNavigator} 
+        options={{ 
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tab.Screen 
         name="DashboardTab" 
         component={DashboardStackNavigator} 
         options={{ 
@@ -157,15 +242,15 @@ export default function BottomTabNavigator() {
         }}
       />
       <Tab.Screen 
-        name="ThermalTab" 
-        component={ThermalStackNavigator} 
+        name="LumiTab" 
+        component={LumiStackNavigator} 
         options={{ 
           tabBarShowLabel: false,
         }}
       />
       <Tab.Screen 
-      name="PowerTab"
-      component={PowerStackNavigator}
+      name="SettingsTab"
+      component={SettingsStackNavigator}
       options={{ 
         tabBarShowLabel: false,
 
@@ -174,3 +259,22 @@ export default function BottomTabNavigator() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  headerTitleContainer: {
+    alignItems: 'center',
+    backgroundColor: '#0E1E38'
+  },
+  headerTitle: {
+    fontFamily: 'asl-regular',
+    color: '#FFF1CF',
+    fontSize: 24,
+  },
+  headerUnderline: {
+    marginTop: 8, // Adjust the spacing between the title and the underline
+    width: 120,    // Length of the underline
+    height: 4,    // Thickness of the underline
+    backgroundColor: '#ff9700', // Color of the underline
+    borderRadius: 30
+  },
+});

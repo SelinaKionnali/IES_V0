@@ -4,14 +4,9 @@ import React from 'react'
 import { View, StyleSheet, ScrollView, Dimensions } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
-import ProgressChartsWidget from '../components/ProgressChartsWidget.js'
-import BatteryChargeChart from '../components/BatteryChargeChart.js'
-import GradientBackground from '../components/GradientBackground.js'
-import SolarProgressChart from '../components/SolarProgressChart.js'
-import ThermalProgressChart from '../components/ThermalProgressChart.js'
-import BatteryChargeSimGraph from '../components/BatteryChargeSimGraph.js'
+import WidgetContainer from '../components/WidgetContainer.js'
 
-const width = Dimensions.get('screen')
+const {width, height} = Dimensions.get('screen')
 
 const DashboardScreen = () => {
   return (
@@ -19,18 +14,7 @@ const DashboardScreen = () => {
       <View style={styles.container}>
         <SystemsTopTabNavigator />
         <GeneralUpdateComponent updateText="Pick systems to compare and I will help explain the data."/>
-        <ProgressChartsWidget 
-          charts={[
-            <SolarProgressChart />,
-            <ThermalProgressChart />,
-          ]}
-        />
-        <BatteryChargeChart />
-        <BatteryChargeSimGraph 
-        title="State of Charge"
-        subtitle="Your battery level over time"
-        />
-       
+        <WidgetContainer />
       </View>
       </ScrollView>
   )
@@ -39,6 +23,7 @@ const DashboardScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: height,
         width: width,
         justifyContent: 'top',
         alignItems: 'center',
