@@ -48,7 +48,8 @@ const SystemsTopTabNavigator = () => {
 
     const handlePress = (route) => {
         if (route) {
-            navigation.navigate(route)
+            console.log("route:>>> ", route); // Check what is being passed
+            navigation.navigate('SystemsStack', { screen: route });
         }
     }
     return (
@@ -56,7 +57,7 @@ const SystemsTopTabNavigator = () => {
                 <FlatList 
                     data={systemsIconData}
                     horizontal
-                    renderItem={({item}) => <TouchableOpacity onPress={handlePress} ><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
+                    renderItem={({item}) => <TouchableOpacity onPress={() => handlePress(item.route)} ><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
                     keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
                 />

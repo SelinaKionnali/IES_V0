@@ -5,13 +5,11 @@ import { Image, View, Text, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../screens/DashboardScreen';
-import ThermalScreen from '../screens/ThermalScreen';
-import PowerScreen from '../screens/PowerScreen';
+import ThermalScreen from '../screens/SystemsScreens/ThermalScreen';
+import PowerScreen from '../screens/SystemsScreens/PowerScreen';
 import LumiScreen from '../screens/LumiScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import lightFormIcon from '../assets/icons/lightFormIcon.png';
-import heatSystemsIcon from '../assets/icons/heatSystemsIcon.png';
-import powerSystemsIcon from '../assets/icons/powerSystemsIcon.png';
 import CircularComponentScreen from '../screens/CircularComponentScreen';
 import hamburger from '../assets/icons/hamburger.png'
 import lumi2 from '../assets/icons/lumi2.png'

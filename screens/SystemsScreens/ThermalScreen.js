@@ -2,14 +2,12 @@
 
 
 import React from 'react'
-import { View, StyleSheet, ScrollView, Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native';
-import GeneralUpdateComponent from '../components/GeneralUpdateComponent'
-import BatteryChargeChart from '../components/BatteryChargeChart'
-import { solarData } from '../data/solarData.js';
+import { View, StyleSheet, ScrollView } from 'react-native'
+import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
+import BatteryChargeChart from '../../components/BatteryChargeChart.js'
 import { Dimensions } from 'react-native';
 
-const {width, height} = Dimensions.get('screen')
+const { height} = Dimensions.get('screen')
 
 
 const ThermalScreen = () => {

@@ -9,6 +9,7 @@ import * as Font from 'expo-font';
 import 'react-native-reanimated';
 import LoadingScreen from './screens/LoadingScreen';
 import BottomTabNavigator from './components/BottomTabNavigator';
+import SystemsStackNavigator from './navigators/SystemsStackNavigator.js'
 
 SplashScreen.preventAutoHideAsync();
 
@@ -66,11 +67,13 @@ export default function App() {
                 {(props) => <LoadingScreen {...props} setIsLoggedIn={setIsLoggedIn} />} 
               </Stack.Screen>
             ) : (
+              <>
               <Stack.Screen
                 name="MainApp"
                 component={BottomTabNavigator}
                 options={{ headerShown: false }} 
               />
+              </>
             )}
           </Stack.Navigator>
         </NavigationContainer>
