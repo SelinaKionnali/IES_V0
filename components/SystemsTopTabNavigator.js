@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity,
     Image,
     View,
@@ -16,36 +17,48 @@ const screenWidth = Dimensions.get('window').width;
 const systemsIconData = [
     {
         id: 1,
-        image: foodImg
+        image: foodImg,
+        route: 'FoodSystems'
     },
     {
         id: 2,
-        image: waterImg
+        image: waterImg,
+        route: 'WaterSystems'
     }, {
         id: 3,
-        image: powerImg
+        image: powerImg,
+        route: 'PowerSystems'
     }, {
         id: 4,
-        image: heatImg
+        image: heatImg,
+        route: 'HeatSystems'
     }, {
         id: 5,
-        image: compostImg
+        image: compostImg,
+        route: 'CompostSystems'
     }, {
         id: 6,
-        image: greywaterImg
+        image: greywaterImg,
+        route: 'GreywaterSystems'
     }
 ]
 
 const SystemsTopTabNavigator = () => {
+    const navigation = useNavigation();
+
+    const handlePress = (route) => {
+        if (route) {
+            navigation.navigate(route)
+        }
+    }
     return (
             <View style={styles.container}>
                 <FlatList 
                     data={systemsIconData}
                     horizontal
-                    renderItem={({item}) => <TouchableOpacity><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
+                    renderItem={({item}) => <TouchableOpacity onPress={handlePress} ><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
                     keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
-                
                 />
             </View>
     )
