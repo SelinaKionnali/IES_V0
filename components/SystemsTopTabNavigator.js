@@ -18,28 +18,28 @@ const systemsIconData = [
     {
         id: 1,
         image: foodImg,
-        route: 'FoodSystems'
+        route: 'Food'
     },
     {
         id: 2,
         image: waterImg,
-        route: 'WaterSystems'
+        route: 'Water'
     }, {
         id: 3,
         image: powerImg,
-        route: 'PowerSystems'
+        route: 'Power'
     }, {
         id: 4,
         image: heatImg,
-        route: 'HeatSystems'
+        route: 'Heat'
     }, {
         id: 5,
         image: compostImg,
-        route: 'CompostSystems'
+        route: 'Compost'
     }, {
         id: 6,
         image: greywaterImg,
-        route: 'GreywaterSystems'
+        route: 'Greywater'
     }
 ]
 

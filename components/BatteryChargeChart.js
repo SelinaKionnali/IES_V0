@@ -15,7 +15,7 @@ const chartConfig = {
   backgroundColor: "transparent",  // Additional backgroundColor setting
   backgroundGradientFromOpacity: 0, // Transparent BG
   backgroundGradientToOpacity: 0, // Transparent BG
-  color: (opacity = 1) => `rgba(196, 154, 207, ${opacity})`,
+  color: (opacity = 1) => `rgba(255, 180, 92, ${opacity})`,
   strokeWidth: 16, // Thickness of the ring
   barPercentage: 0.5,
   useShadowColorFromDataset: false, // Disable shadows
@@ -25,7 +25,7 @@ const chartConfig = {
   },
 };
 
-const BatteryChargeChart = () => {
+const BatteryChargeChart = ({ number, label}) => {
   return (
     <View style={styles.container}>
       <ProgressChart
@@ -39,12 +39,12 @@ const BatteryChargeChart = () => {
         style={{
           marginVertical: 8,
           borderRadius: 16,
-          backgroundColor: 'transparent',  // Ensure the chart style itself has transparency
+          backgroundColor: 'transparent',  
         }}
       />
       <View style={styles.overlayContainer}>
-        <Text style={styles.percentageText}>74%</Text>
-        <Text style={styles.labelText}>Battery Charge</Text>
+        <Text style={styles.percentageText}>{number}</Text>
+        <Text style={styles.labelText}>{label}</Text>
       </View>
     </View>
   );
@@ -54,8 +54,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: screenWidth,
-    height: screenWidth,
+    flex: 1,
   },
   overlayContainer: {
     position: 'absolute',
@@ -71,9 +70,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Text-Light'
   },
   labelText: {
+    width: 100,
     fontSize: 16,
     color: '#FFF1CF',
     fontFamily: 'Text-Light',
+    textAlign: 'center'
   },
 });
 

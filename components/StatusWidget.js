@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import dnd from '../assets/icons/dnd.png'
 
 const StatusWidget = ({ title, status, message }) => {
-  // Determine color based on status
   const getStatusColor = (status) => {
     switch (status) {
       case 'good':
@@ -21,9 +21,7 @@ const StatusWidget = ({ title, status, message }) => {
       <View style={styles.headerContainer}>
         <Text style={styles.title}>{title}</Text>
         <View style={styles.dotsContainer}>
-          <View style={styles.dot} />
-          <View style={styles.dot} />
-          <View style={styles.dot} />
+          <Image style={styles.image} source={dnd} />
         </View>
       </View>
 
@@ -41,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
-    width: 180,
+    width: 160,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -83,7 +81,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FFFFFF',
     flexShrink: 1
-  }
+  },
+  image: {
+    width: 10,
+    height: 20
+}
 });
 
 export default StatusWidget;

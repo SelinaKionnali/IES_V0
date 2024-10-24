@@ -10,6 +10,7 @@ import 'react-native-reanimated';
 import LoadingScreen from './screens/LoadingScreen';
 import BottomTabNavigator from './components/BottomTabNavigator';
 import SystemsStackNavigator from './navigators/SystemsStackNavigator.js'
+import { StatusBar, SafeAreaView } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -56,6 +57,10 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="light-content" // Light text for dark background
+        backgroundColor="#183564" // Set the background color
+      />
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <NavigationContainer>
           <Stack.Navigator>
@@ -69,10 +74,18 @@ export default function App() {
             ) : (
               <>
               <Stack.Screen
-                name="MainApp"
+                name="App"
                 component={BottomTabNavigator}
                 options={{ headerShown: false }} 
               />
+              <Stack.Screen
+                  name="SystemsStack"
+                  component={SystemsStackNavigator}
+                  options={{ 
+                    headerShown: false,
+                    header: false
+                   }} 
+                />
               </>
             )}
           </Stack.Navigator>

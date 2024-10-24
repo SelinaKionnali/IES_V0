@@ -28,11 +28,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         margin: 20,
         width: 360  ,
-        height: 120,
         backgroundColor: '#4C698B',
         borderRadius: 30,
         padding: 20,
-        borderWidth: 1
     },
     rowContainer: {
        display: 'flex',

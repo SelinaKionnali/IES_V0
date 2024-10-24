@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, StyleSheet, Dimensions, Text } from 'react-native'
-import dnd from '../assets/icons/dnd.png'
+import dnd from '../../assets/icons/dnd.png'
 
 const {width, height} = Dimensions.get('screen')
 

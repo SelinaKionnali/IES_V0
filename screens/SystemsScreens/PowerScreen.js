@@ -14,6 +14,7 @@ import EnergyUsagePiechart from '../../charts/EnergyUsagePiechart.js'
 import StatusWidget from '../../components/StatusWidget.js'
 import {solarData} from '../../data/solarData.js'
 import PowerToggle from '../../components/PowerToggle.js'
+import ThermalProgressChart from '../../components/ThermalProgressChart.js'
 
 
 const PowerScreen = () => {
@@ -26,12 +27,12 @@ const PowerScreen = () => {
         <GradientBackground>
 
         <View style={styles.container}>
-          <SystemsTopTabNavigator />
           <GeneralUpdateComponent updateText="Your batteries are full and there are no significant battery drains." />
           <ProgressChartsWidget 
             solarChart={<SolarProgressChart />}
+            thermalChart={<ThermalProgressChart number='92%' text='Battery Health' header='Battery Health' />}
           />
-          <PowerToggle />
+          
           <View style={styles.widgetContainer}>
           <StatusWidget 
           title="System Status" 
@@ -69,10 +70,11 @@ const PowerScreen = () => {
         alignItems: 'center',
         padding: 10,
         borderRadius: 20,
-        marginTop: 40,
+        marginTop: 10,
         marginBottom: 20,
         marginLeft: 20,
         marginRight: 20,
+        gap: 10
         
     
     

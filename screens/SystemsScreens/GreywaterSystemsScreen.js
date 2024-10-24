@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Dimensions, ScrollView } from 'react-native'
-import SystemsTopTabNavigator from '../../components/SystemsTopTabNavigator.js'
+import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
+import WidgetContainer from '../../components/Widgets/WidgetContainer.js'
 
 const {width, height} = Dimensions.get('screen')
 
@@ -8,7 +9,8 @@ const GreywaterSystemsScreen = () => {
     return (
         <ScrollView >
         <View style={styles.container}>
-          <SystemsTopTabNavigator />
+            <GeneralUpdateComponent updateText='Your grey water tank is filling.' />
+            <WidgetContainer />
         </View>
         </ScrollView>
       )

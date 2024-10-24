@@ -2,9 +2,9 @@
 // The charts in this component have been sized in their own component files to be half the size of the screen width.
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 
-
+const {width} = Dimensions.get('screen')
 
 const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
   return (
@@ -35,16 +35,19 @@ const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row', // Arrange items horizontally
-    justifyContent: 'space-between', // Space them evenly
+    flex: 1,
+    width: width - 40,
+    flexDirection: 'row', 
+    justifyContent: 'center', 
     alignItems: 'center',
-    padding: 10,
+    padding: 40,
     backgroundColor: '#21436B',
     borderRadius: 20,
     marginTop: 40,
     marginBottom: 20,
     marginLeft: 20,
     marginRight: 20,
+    gap: 10,
     
 
     // Shadow for iOS

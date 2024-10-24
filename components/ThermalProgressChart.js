@@ -21,11 +21,11 @@ const chartConfig = {
   useShadowColorFromDataset: false, // Disable shadows
 };
 
-const ThermalProgressChart = () => {
+const ThermalProgressChart = ({header, number, text}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Thermal Usage</Text>
+      <Text style={styles.header}>{header}</Text>
 
       <ProgressChart
         data={data}
@@ -37,8 +37,8 @@ const ThermalProgressChart = () => {
         hideLegend={true}
       />
             <View style={styles.overlayContainer}>
-        <Text style={styles.percentageText}>74%</Text>
-        <Text style={styles.labelText}>Battery Charge</Text>
+        <Text style={styles.percentageText}>{number}</Text>
+        <Text style={styles.labelText}>{text}</Text>
       </View>
 
     </View>

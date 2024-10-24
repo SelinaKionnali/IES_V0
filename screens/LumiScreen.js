@@ -1,6 +1,8 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native'
-import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator'
+import { View, StyleSheet, Dimensions, ScrollView, Image} from 'react-native'
+import lumi from '../assets/BGs/lumi.png'
+import {colours} from '../Utilities/colours'
+import roundedTile from '../assets/BGs/roundedTile.png'
 
 const {width, height} = Dimensions.get('screen')
 
@@ -10,7 +12,7 @@ const LumiScreen = () => {
     return (
         <ScrollView >
         <View style={styles.container}>
-          <SystemsTopTabNavigator />
+            <Image source={lumi} style={styles.bg} />
         </View>
         </ScrollView>
     )
@@ -18,14 +20,21 @@ const LumiScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        height: height,
-        width: width,
-        justifyContent: 'top',
         alignItems: 'center',
-        borderWidth: 3,
-        backgroundColor: '#0E1E38',
+        width: width,
+        height: height,
+        backgroundColor: colours.darkestBlue,
+        zIndex: 0
     }, 
+    bg: {
+        width: width,
+        height: height / 2.5,
+    },
+    tile: {
+        width: width - 40,
+        height: 500,
+        zIndex: 20,
+    }
 })
 
 export default LumiScreen;
