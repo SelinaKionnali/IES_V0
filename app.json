@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/kls.png",
     "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
     "splash": {
       "image": "./assets/splashScreen.png",
       "resizeMode": "contain",

@@ -1,7 +1,7 @@
 // The bottom tab navigator is a navigational component and is imported in the app.js file
 
 import * as React from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet, Dimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import DashboardScreen from '../screens/DashboardScreen';
@@ -17,6 +17,8 @@ import mktPlace from '../assets/icons/mktPlaceIcon.png'
 import profile3 from '../assets/icons/profile3.png'
 import ProfileScreen from '../screens/ProfileScreen';
 import MarketplaceScreen from '../screens/MarketplaceScreen';
+
+const {width, height} = Dimensions.get('screen')
 
 // Create stack navigators for each tab
 const ProfileStack = createStackNavigator();
@@ -260,6 +262,7 @@ export default function BottomTabNavigator() {
 
 const styles = StyleSheet.create({
   headerTitleContainer: {
+    width: width -40,
     alignItems: 'center',
     backgroundColor: '#0E1E38'
   },
@@ -267,6 +270,7 @@ const styles = StyleSheet.create({
     fontFamily: 'asl-regular',
     color: '#FFF1CF',
     fontSize: 24,
+    alignItems: 'center',
   },
   headerUnderline: {
     marginTop: 8, // Adjust the spacing between the title and the underline

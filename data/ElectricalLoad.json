@@ -13,7 +13,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0",
-        "total base": "25",
+        "totalBase": "25",
         "cooking": "0"
     },
     {
@@ -30,7 +30,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0",
-        "total base": "25",
+        "totalBase": "25",
         "cooking": "0"
     },
     {
@@ -47,7 +47,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0",
-        "total base": "28",
+        "totalBase": "28",
         "cooking": "0"
     },
     {
@@ -64,7 +64,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0",
-        "total base": "28",
+        "totalBase": "28",
         "cooking": "0"
     },
     {
@@ -81,7 +81,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.02",
         "Inverter": "0.01",
-        "total base": "33",
+        "totalBase": "33",
         "cooking": "0"
     },
     {
@@ -98,7 +98,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.02",
         "Inverter": "0.01",
-        "total base": "33",
+        "totalBase": "33",
         "cooking": "0"
     },
     {
@@ -115,7 +115,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.02",
         "Inverter": "0.01",
-        "total base": "296",
+        "totalBase": "296",
         "cooking": "0"
     },
     {
@@ -132,7 +132,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.02",
         "Inverter": "0.01",
-        "total base": "33",
+        "totalBase": "33",
         "cooking": "306"
     },
     {
@@ -149,7 +149,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.04",
         "Inverter": "0.05",
-        "total base": "69",
+        "totalBase": "69",
         "cooking": "220"
     },
     {
@@ -166,7 +166,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.2",
-        "total base": "52",
+        "totalBase": "52",
         "cooking": "236"
     },
     {
@@ -183,7 +183,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.05",
-        "total base": "52",
+        "totalBase": "52",
         "cooking": "0"
     },
     {
@@ -200,7 +200,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.01",
-        "total base": "28",
+        "totalBase": "28",
         "cooking": "204"
     },
     {
@@ -217,7 +217,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.01",
-        "total base": "315",
+        "totalBase": "315",
         "cooking": "0"
     },
     {
@@ -234,7 +234,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.01",
-        "total base": "52",
+        "totalBase": "52",
         "cooking": "110"
     },
     {
@@ -251,7 +251,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.01",
-        "total base": "52",
+        "totalBase": "52",
         "cooking": "0"
     },
     {
@@ -268,7 +268,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.1",
-        "total base": "52",
+        "totalBase": "52",
         "cooking": "0"
     },
     {
@@ -285,7 +285,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.1",
-        "total base": "290",
+        "totalBase": "290",
         "cooking": "220"
     },
     {
@@ -302,7 +302,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.1",
-        "total base": "28",
+        "totalBase": "28",
         "cooking": "236"
     },
     {
@@ -319,7 +319,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.1",
-        "total base": "28",
+        "totalBase": "28",
         "cooking": "306"
     },
     {
@@ -336,7 +336,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.15",
         "Inverter": "0.1",
-        "total base": "165",
+        "totalBase": "165",
         "cooking": "204"
     },
     {
@@ -353,7 +353,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.03",
         "Inverter": "0.1",
-        "total base": "442",
+        "totalBase": "442",
         "cooking": "0"
     },
     {
@@ -370,7 +370,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.03",
         "Inverter": "0.02",
-        "total base": "99",
+        "totalBase": "99",
         "cooking": "0"
     },
     {
@@ -387,7 +387,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.02",
-        "total base": "307",
+        "totalBase": "307",
         "cooking": "118"
     },
     {
@@ -404,7 +404,7 @@
         "ventilation": "0.04166666667",
         "Misc": "0.01",
         "Inverter": "0.02",
-        "total base": "25",
+        "totalBase": "25",
         "cooking": "0"
     }
 ]

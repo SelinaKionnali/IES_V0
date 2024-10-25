@@ -83,7 +83,7 @@ export const solarData = {
     },
     ghostDrainStatus: {
       status: 'warning',  
-      message: 'No Drain Detected',
+      message: ' Drain Detected',
     }
 
   };

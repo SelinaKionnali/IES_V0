@@ -4,8 +4,9 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
-import BatteryChargeChart from '../../components/BatteryChargeChart.js'
 import { Dimensions } from 'react-native';
+import HeatConsumptionSimChart from '../../components/HeatConsumptionSimChart.js';
+import HeatRecoverySimChart from '../../components/HeatRecoverySimChart.js';
 
 const { height} = Dimensions.get('screen')
 
@@ -18,7 +19,8 @@ const ThermalScreen = () => {
     <ScrollView >
       <View style={styles.container}>
         <GeneralUpdateComponent updateText="You are recovering lots of heat from cooking today." />
-        <BatteryChargeChart />
+        <HeatConsumptionSimChart title='Heat Consumption' subtitle='Energy used each hour' />
+        <HeatRecoverySimChart title='Heat Recovery' subtitle='Reclaimed Heat' />
       </View>
       </ScrollView>
   )
@@ -26,7 +28,7 @@ const ThermalScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        height: height,
+        height: height *2,
         flex: 1,
         justifyContent: 'top',
         alignItems: 'center',

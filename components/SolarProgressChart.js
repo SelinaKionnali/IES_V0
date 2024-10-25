@@ -2,7 +2,7 @@
 // if i want the chart to show dynamically in widget, then this component stays the same and is imported to parent component (screens) to pass the props to widget.
 
 import React from 'react';
-import { View, Dimensions, Text, StyleSheet } from 'react-native';
+import { View, Dimensions, Text, StyleSheet, Platform } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
 
 const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to fit two charts side by side
@@ -19,7 +19,7 @@ const chartConfig = {
   useShadowColorFromDataset: false, // Disable shadows
 };
 
-const SolarProgressChart = () => {
+const SolarProgressChart = ({ text, number }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Solar Usage</Text>
@@ -33,8 +33,8 @@ const SolarProgressChart = () => {
         hideLegend={true}
       />
             <View style={styles.overlayContainer}>
-        <Text style={styles.percentageText}>41%</Text>
-        <Text style={styles.labelText}>Battery Charge</Text>
+        <Text style={styles.percentageText}>{number}</Text>
+        <Text style={styles.labelText}>{text}</Text>
       </View>
 
     </View>
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
       },
       percentageText: {
         fontSize: 32,
-        fontWeight: 'bold',
+        fontWeight: Platform.OS === "ios" ? "300" : "100",
         color: '#FFD568', 
-        fontFamily: 'Text-Light'
+        fontFamily: Platform.OS === "ios" ? "Text-Light" : "Helvetica"
       },
       labelText: {
         fontSize: 16,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
       },
       header: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: Platform.OS === "ios" ? "300" : "100",
     marginBottom: 10,
     color: '#FFF1CF',
     fontFamily: 'Text-Light',

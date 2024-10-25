@@ -2,7 +2,7 @@
 
 
 import React from 'react';
-import { View, Dimensions, Text, StyleSheet, Button } from 'react-native';
+import { View, Dimensions, Text, StyleSheet, Button, Platform } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
 
 const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to fit two charts side by side
@@ -61,10 +61,9 @@ const styles = StyleSheet.create({
       },
       percentageText: {
         fontSize: 32,
-        fontWeight: 'bold',
         color: '#FFD568', 
-        fontFamily: 'Text-Light'
-      },
+        fontWeight: Platform.OS === 'android' ? '100' : '100',
+    },
       labelText: {
         fontSize: 16,
         color: '#FFF1CF',
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
       },
       header: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: Platform.OS === "ios" ? "300" : "100",
     marginBottom: 10,
     color: '#FFF1CF',
     fontFamily: 'Text-Light',

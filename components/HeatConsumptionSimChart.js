@@ -19,7 +19,7 @@ const chartConfig = {
 };
 
 
-const BatteryChargeSimGraph = ({title, subtitle}) => {
+const HeatConsumptionSimChart = ({title, subtitle}) => {
     const [chartData, setChartData] = useState(null);
     const [chartTimeframe, setChartTimeframe] = useState('6 hours');
     const [activeButton, setActiveButton] = useState('6 hours');
@@ -83,13 +83,17 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
       
           const hours = filteredData.map((data) => `${data.hour}`);
           const percentages = filteredData.map((data) => parseFloat(data.percentage) * 100);
+          const consumptionData = filteredData.map(data => parseFloat(data.consumption));
+        const heatRecoveryData = filteredData.map(data => parseFloat(data["heat recovery"]));
+        const bodyHeatData = filteredData.map(data => parseFloat(data["body heat W"]));
+        const totalRecoveryData = filteredData.map(data => parseFloat(data["total recovery"]));
       
           // Set chart data
           setChartData({
             labels: hours,
             datasets: [
               {
-                data: percentages,
+                data: consumptionData,
                 strokeWidth: 2, // Optional: line width
               }
             ]
@@ -121,6 +125,8 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
                     yAxisSuffix="%"
                     yAxisInterval={1} // Adjust if you want finer control over intervals
                     fromZero={true} // This ensures the chart starts from 0
+                    yAxisMax={800} // Set the max value across both datasets
+                    segments={6}
                 />
             </View>
             <View style={styles.btnContainer}>
@@ -207,4 +213,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default BatteryChargeSimGraph;
+export default HeatConsumptionSimChart;

@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
   },
   statusContainer: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    height: 40
   },
   statusLight: {
     width: 20,
@@ -80,7 +81,8 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 14,
     color: '#FFFFFF',
-    flexShrink: 1
+    flexShrink: 1,
+    alignItems: 'center',
   },
   image: {
     width: 10,

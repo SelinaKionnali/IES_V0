@@ -35,7 +35,6 @@ const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: width - 40,
     flexDirection: 'row', 
     justifyContent: 'center', 
