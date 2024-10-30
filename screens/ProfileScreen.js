@@ -13,6 +13,10 @@ import { colours } from '../Utilities/colours'
 
 
 const {width, height} = Dimensions.get('window')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
+
 
 const isTablet = width >= 600;
 
@@ -21,8 +25,21 @@ const ProfileScreen = () => {
     return (
     <ScrollView >
         <View style={styles.container}>
-            <View style={styles.profileBG}>
-                <Image style={styles.image} source={profileHeader} />
+            <View style={[
+            styles.profileBG,
+            isLargeTablet && styles.largeTabletProfileBG,
+            isSmallTablet && styles.smallTabletProfileBG,
+            isPhone && styles.phoneProfileBG,
+          ]}
+          >
+                <Image style={[
+            styles.image,
+            isLargeTablet && styles.largeTabletImage,
+            isSmallTablet && styles.smallTabletImage,
+            isPhone && styles.phoneImage,
+            ]} 
+            source={profileHeader} 
+            />
             </View>
          
             <Searchbar placeholder='What are you looking for?' />
@@ -59,9 +76,17 @@ const styles = StyleSheet.create({
         width: wp(100),
         height: hp(40),
     },
+    phoneProfileBG: {
+        width: wp(100),
+        height: hp(20),
+    },
     image: {
         width: width,
-        height: hp(40)
+        height: hp(40),
+    },
+    phoneImage: {
+        resizeMode: 'contain'
+
     },
     loginImage: {
         width: wp(100),
