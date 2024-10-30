@@ -1,14 +1,14 @@
 import React from 'react'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { Image } from 'react-native'
 import { View,  StyleSheet, Dimensions, TextInput } from 'react-native'
 import sound from '../assets/icons/voice.png'
 import search from '../assets/icons/search.png'
+import { colours } from '../Utilities/colours';
 
 const {width, height} = Dimensions.get('screen')
 
 const Searchbar = ({label, placeholder}) => {
-    console.log(label)
-    console.log(placeholder)
     return (
         <View style={styles.container}>
             <View style={styles.inputContainer}>
@@ -29,31 +29,31 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         position: 'relative',
-        width: width - 120,
-        height: 42,
+        width: wp(70),
+        height: hp(5),
         borderRadius: 100,
-        marginVertical: 10,
+        marginTop: wp(5),
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 16,
-        backgroundColor: '#21436b',
+        backgroundColor: colours.Blue,
         flexDirection: 'row',
-
 
     },
     input: {
         fontFamily: 'Text-Regular',
-        fontSize: 16,
-        height: 25,
+        fontSize: hp(2),
+        flex: 1,
+        height: hp(100)
     },
     image: {
-        width: 30,
-        height: 31,
+        width: wp(8),
+        resizeMode: 'contain'
     },
     image2: {
-        width: 25,
-        height: 24,
-        marginLeft: 16
+        width: wp(8),
+        resizeMode: 'contain',
+        marginLeft: wp(3)
     }
     
 })

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ImageBackground, Dimensions, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, ImageBackground, Dimensions, View, TouchableOpacity, Image, Platform } from 'react-native';
 import logo from '../assets/yellowLogo.png'
 
 const { width, height } = Dimensions.get('screen');

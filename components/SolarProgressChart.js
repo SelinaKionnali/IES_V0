@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: Platform.OS === "ios" ? "300" : "100",
         color: '#FFD568', 
-        fontFamily: Platform.OS === "ios" ? "Text-Light" : "Helvetica"
+        fontFamily: "Text-Light" 
       },
       labelText: {
         fontSize: 16,

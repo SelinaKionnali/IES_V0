@@ -2,7 +2,8 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Lumi from '../assets/icons/Lumi (1).png'
 
-const GeneralUpdateComponent = ({updateText}) => {
+const GeneralUpdateComponent = ({updateText, onUpdatePress, onChatPress}) => {
+    
    return (
     <View style={styles.columnContainer}>
         <View style={styles.rowContainer}>
@@ -10,14 +11,18 @@ const GeneralUpdateComponent = ({updateText}) => {
             <Text style={styles.text}>{updateText}</Text>
         </View>
     <View style={styles.rowTextContainer}>
-    <TouchableOpacity >
+    <TouchableOpacity
+        onPress={onUpdatePress}
+    >
             <Text style={styles.linkText}>Full update</Text>
     </TouchableOpacity>
-    <TouchableOpacity >
+    <TouchableOpacity 
+        onPress={onChatPress}
+    >
             <Text style={styles.linkText}>Quick chat</Text>
     </TouchableOpacity>
     </View>
-
+   
     </View>
    )
 }

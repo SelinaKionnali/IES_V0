@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import FoodSystemsScreen from '../screens/SystemsScreens/FoodSystemsScreen';
 import WaterSystemsScreen from '../screens/SystemsScreens/WaterSystemsScreen';
@@ -8,6 +8,7 @@ import HeatSystemsScreen from '../screens/SystemsScreens/ThermalScreen';
 import CompostSystemsScreen from '../screens/SystemsScreens/CompostSystemsScreen';
 import GreywaterSystemsScreen from '../screens/SystemsScreens/GreywaterSystemsScreen';
 
+const {width, height} = Dimensions.get('screen')
 const SystemsStack = createStackNavigator();
 
 function CustomHeaderTitle({ title }) {
@@ -21,33 +22,53 @@ function CustomHeaderTitle({ title }) {
 
 function SystemsStackNavigator() {
   return (
-    <SystemsStack.Navigator>
+    <SystemsStack.Navigator 
+      options={{
+        headerBackTitleStyle: {color: 'white'}
+      }}
+    >
       <SystemsStack.Screen name="Food" component={FoodSystemsScreen} options={{ 
-          headerTitle: () => <CustomHeaderTitle title='FOOD SYSTEM' />, // Use custom header title
+          headerTitle: () => <CustomHeaderTitle title='FOOD SYSTEM' />, 
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
           headerStyle: {
             backgroundColor: '#0E1E38',
-            shadowOpacity: 0, // Remove shadow on iOS
-            borderBottomWidth: 0, // Remove border line on iOS
+            shadowOpacity: 0, 
+            borderBottomWidth: 0,
+            
           },
         }}  />
       <SystemsStack.Screen name="Water" component={WaterSystemsScreen} options={{ 
-          headerTitle: () => <CustomHeaderTitle title='WATER SYSTEM' />, // Use custom header title
+          headerTitle: () => <CustomHeaderTitle title='WATER SYSTEM' />, 
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
+
           headerStyle: {
             backgroundColor: '#0E1E38',
-            shadowOpacity: 0, // Remove shadow on iOS
-            borderBottomWidth: 0, // Remove border line on iOS
+            shadowOpacity: 0, 
+            borderBottomWidth: 0, 
           },
         }} />
       <SystemsStack.Screen name="Power" component={PowerSystemsScreen} options={{ 
-          headerTitle: () => <CustomHeaderTitle title='POWER SYSTEM' />, // Use custom header title
+          headerTitle: () => <CustomHeaderTitle title='POWER SYSTEM' />, 
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
+
           headerStyle: {
             backgroundColor: '#0E1E38',
-            shadowOpacity: 0, // Remove shadow on iOS
-            borderBottomWidth: 0, // Remove border line on iOS
+            shadowOpacity: 0, 
+            borderBottomWidth: 0, 
           },
         }} />
       <SystemsStack.Screen name="Heat" component={HeatSystemsScreen} options={{ 
           headerTitle: () => <CustomHeaderTitle title='THERMAL SYSTEM' />, // Use custom header title
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
+
           headerStyle: {
             backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
@@ -56,6 +77,10 @@ function SystemsStackNavigator() {
         }} />
       <SystemsStack.Screen name="Compost" component={CompostSystemsScreen} options={{ 
           headerTitle: () => <CustomHeaderTitle title='COMPOST SYSTEM' />, // Use custom header title
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
+
           headerStyle: {
             backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
@@ -64,6 +89,10 @@ function SystemsStackNavigator() {
         }} />
       <SystemsStack.Screen name="Greywater" component={GreywaterSystemsScreen} options={{ 
           headerTitle: () => <CustomHeaderTitle title='GREYWATER' />, // Use custom header title
+          headerBackTitleStyle: {color: '#fff1cf'},
+          headerBackTitleVisible: false,
+          headerTintColor: '#fff1cf',
+
           headerStyle: {
             backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
@@ -76,8 +105,10 @@ function SystemsStackNavigator() {
 
 const styles = StyleSheet.create({
   headerTitleContainer: {
+    width: width / 1.5,
     alignItems: 'center',
-    backgroundColor: '#0E1E38'
+    backgroundColor: '#0E1E38',
+
   },
   headerTitle: {
     fontFamily: 'asl-regular',

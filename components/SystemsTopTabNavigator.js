@@ -11,8 +11,9 @@ import waterImg from '../assets/icons/waterSystemsIcon.png'
 import greywaterImg from '../assets/icons/greywaterSystemsIcon.png'
 import heatImg from '../assets/icons/heatSystemsIcon.png'
 import powerImg from '../assets/icons/powerSystemsIcon.png'
+import {colours} from '../Utilities/colours.js'
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get('screen').width;
 
 const systemsIconData = [
     {
@@ -48,7 +49,6 @@ const SystemsTopTabNavigator = () => {
 
     const handlePress = (route) => {
         if (route) {
-            console.log("route:>>> ", route); // Check what is being passed
             navigation.navigate('SystemsStack', { screen: route });
         }
     }
@@ -57,9 +57,16 @@ const SystemsTopTabNavigator = () => {
                 <FlatList 
                     data={systemsIconData}
                     horizontal
-                    renderItem={({item}) => <TouchableOpacity onPress={() => handlePress(item.route)} ><Image source={item.image} style={styles.icon} /></TouchableOpacity>}
+                    renderItem={({item}) => (
+                    <View style={styles.iconContainers}>
+                        <TouchableOpacity onPress={() => handlePress(item.route)} >
+                            <Image source={item.image} style={styles.icon} />
+                        </TouchableOpacity>
+                    </View>
+                    )}
                     keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.flatlistContent}
                 />
             </View>
     )
@@ -70,15 +77,25 @@ const styles = StyleSheet.create ({
         width: 50,
         height: 50,
         marginHorizontal: 5,
+        justifyContent: 'space-around'
+
       },
       container: {
-        width: screenWidth -10,
+        width: screenWidth * 0.9,
         height: 70,
         padding: 10,
-        backgroundColor: '#183564',
+        backgroundColor: colours.Blue,
         borderRadius: 100,
         marginVertical: 20,
-
+      },
+      iconContainers: {
+        width: 50,
+        height: 50
+      },
+      flatlistContent: {
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexGrow: 1
       }
 })
 

@@ -17,6 +17,7 @@ import mktPlace from '../assets/icons/mktPlaceIcon.png'
 import profile3 from '../assets/icons/profile3.png'
 import ProfileScreen from '../screens/ProfileScreen';
 import MarketplaceScreen from '../screens/MarketplaceScreen';
+import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
 
 const {width, height} = Dimensions.get('screen')
 
@@ -41,11 +42,17 @@ function CustomHeaderTitle({ title }) {
 
 function ProfileStackNavigator() {
   return (
-    <ProfileStack.Navigator>
+    <ProfileStack.Navigator 
+      screenOptions={{
+        headerTintColor: '#FFB45C',
+        tabBarActiveTintColor: '#ffffff'
+      }}
+    >
       <ProfileStack.Screen 
         name="Profile" 
         component={ProfileScreen} 
         options={{ 
+          headerTintColor: '#ffb45c',
           headerTitle: () => <CustomHeaderTitle title='Profile' />, // Use custom header title
           headerStyle: {
             backgroundColor: '#0E1E38',
@@ -85,7 +92,7 @@ function DashboardStackNavigator() {
         name="Dashboard" 
         component={DashboardScreen} 
         options={{ 
-          headerTitle: () => <CustomHeaderTitle title='Compare Systems' />, // Use custom header title
+          headerTitle: () => <CustomHeaderTitle title='Dashboard' />, // Use custom header title
           headerStyle: {
             backgroundColor: '#0E1E38',
             shadowOpacity: 0, // Remove shadow on iOS
@@ -161,11 +168,19 @@ function ThermalStackNavigator() {
 
 function PowerStackNavigator() {
     return (
-        <PowerStack.Navigator>
+        <PowerStack.Navigator 
+         screenOptions={{
+          headerIconColor: '#fff1cf',
+          headerTintColor: '#fff1cf',
+          
+         }}
+        >
             <PowerStack.Screen 
             name="Power"
             component={PowerScreen}
             options={{ 
+              headerIconColor: '#fff1cf',
+              headerTintColor: '#fff1cf',
               headerTitle: () => <CustomHeaderTitle title='Power'/>, // Use custom header title
               headerStyle: {
                 backgroundColor: '#0E1E38',
@@ -264,7 +279,7 @@ const styles = StyleSheet.create({
   headerTitleContainer: {
     width: width -40,
     alignItems: 'center',
-    backgroundColor: '#0E1E38'
+    backgroundColor: '#0E1E38',
   },
   headerTitle: {
     fontFamily: 'asl-regular',

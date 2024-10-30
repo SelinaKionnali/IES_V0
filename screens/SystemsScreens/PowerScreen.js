@@ -1,7 +1,7 @@
 // This screen contains a navigational bar at the top, an update component, a widget and a chart.
 
 import React from 'react'
-import { View, StyleSheet, ScrollView, Dimensions, Platform } from 'react-native'
+import { View, StyleSheet, ScrollView, Dimensions, Platform, Modal, Text, Button  } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../../components/ProgressChartsWidget'
 import SolarProgressChart from '../../components/SolarProgressChart.js'
@@ -10,12 +10,22 @@ import {solarData} from '../../data/solarData.js'
 import ThermalProgressChart from '../../components/ThermalProgressChart.js'
 import { colours } from '../../Utilities/colours.js'
 import BatteryChargeSimGraph from '../../components/BatteryChargeSimGraph.js'
+import { useModal } from '../../Utilities/ModalContext.js'
 
 
 const {width, height} = Dimensions.get('screen')
 
 
 const PowerScreen = () => {
+  const { modalVisible, modalContent, showModal, hideModal } = useModal();
+
+  const handleChatPress = () => {
+    showModal('Chat Pressed');
+  };
+
+  const handleUpdatePress = () => {
+    showModal('Update Pressed');
+  };
 
   const wattInToday = solarData.daily
 
@@ -24,7 +34,25 @@ const PowerScreen = () => {
       <ScrollView >
 
         <View style={styles.container}>
-          <GeneralUpdateComponent updateText="Your batteries are full and there are no significant battery drains." />
+          <GeneralUpdateComponent 
+          updateText="Your batteries are full and there are no significant battery drains." 
+          onChatPress={handleChatPress}
+          onUpdatePress={handleUpdatePress}
+
+          />
+            <Modal
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={hideModal}
+      >
+                <View style={styles.modalBackground}>
+                    <View style={styles.modalContent}>
+                        <Text>{modalContent}</Text>
+                        <Button title="Close" onPress={hideModal} />
+                    </View>
+                </View>
+            </Modal>
+
           <ProgressChartsWidget 
             solarChart={<SolarProgressChart number='41%' text='Battery Charge'/>}
             thermalChart={<ThermalProgressChart number='92%' text='Battery Health' header='Battery Health' />}
@@ -70,10 +98,21 @@ const PowerScreen = () => {
         marginLeft: 20,
         marginRight: 20,
         gap: 10
-        
-    
-    
-      }
+      },
+      modalBackground: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      },
+      modalContent: {
+        width: 300,
+        padding: 20,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        alignItems: 'center',
+      },
+
   })
 
 export default PowerScreen;

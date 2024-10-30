@@ -11,6 +11,8 @@ import LoadingScreen from './screens/LoadingScreen';
 import BottomTabNavigator from './components/BottomTabNavigator';
 import SystemsStackNavigator from './navigators/SystemsStackNavigator.js'
 import { StatusBar, SafeAreaView } from 'react-native';
+import { colours } from './Utilities/colours.js';
+import { ModalProvider } from './Utilities/ModalContext.js'
 
 SplashScreen.preventAutoHideAsync();
 
@@ -62,12 +64,16 @@ export default function App() {
         backgroundColor="#183564" // Set the background color
       />
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <ModalProvider>
         <NavigationContainer>
           <Stack.Navigator>
             {!isLoggedIn ? (
               <Stack.Screen
                 name="Loading"
-                options={{ headerShown: false }} 
+                options={{ 
+                  headerShown: false,
+                  
+                 }} 
               >
                 {(props) => <LoadingScreen {...props} setIsLoggedIn={setIsLoggedIn} />} 
               </Stack.Screen>
@@ -82,6 +88,7 @@ export default function App() {
                   name="SystemsStack"
                   component={SystemsStackNavigator}
                   options={{ 
+                    headerTintColor: '#ffb45c',
                     headerShown: false,
                     header: false
                    }} 
@@ -90,6 +97,7 @@ export default function App() {
             )}
           </Stack.Navigator>
         </NavigationContainer>
+       </ModalProvider>
       </View>
     </GestureHandlerRootView>
   );
