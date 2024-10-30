@@ -10,6 +10,8 @@ import device from '../assets/icons/device.png'
 import Searchbar from '../components/Searchbar'
 import loginImg from '../assets/BGs/loginImg.png'
 import { colours } from '../Utilities/colours'
+import ProfileInfoForm from '../components/ProfileInfoForm';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const {width, height} = Dimensions.get('window')
@@ -26,39 +28,45 @@ const ProfileScreen = () => {
     <ScrollView >
         <View style={styles.container}>
             <View style={[
-            styles.profileBG,
-            isLargeTablet && styles.largeTabletProfileBG,
-            isSmallTablet && styles.smallTabletProfileBG,
-            isPhone && styles.phoneProfileBG,
-          ]}
-          >
+                styles.profileBG,
+                isLargeTablet && styles.largeTabletProfileBG,
+                isSmallTablet && styles.smallTabletProfileBG,
+                isPhone && styles.phoneProfileBG,
+                ]}
+            >
                 <Image style={[
-            styles.image,
-            isLargeTablet && styles.largeTabletImage,
-            isSmallTablet && styles.smallTabletImage,
-            isPhone && styles.phoneImage,
-            ]} 
-            source={profileHeader} 
-            />
+                styles.image,
+                isLargeTablet && styles.largeTabletImage,
+                isSmallTablet && styles.smallTabletImage,
+                isPhone && styles.phoneImage,
+                ]} 
+                source={profileHeader} 
+                />
             </View>
          
             <Searchbar placeholder='What are you looking for?' />
-            <Image source={loginImg} style={styles.loginImage} resizeMethod='auto' />
+            <ProfileInfoForm />
+            <TouchableOpacity>
             <Profile50
                 title='Basic Set Up'
                 subtitle='Edit profile, family and optimization'
                 icon={LF}
             />
+            </TouchableOpacity>
+            <TouchableOpacity>
             <Profile50
                 title='LightForm Optimization '
                 subtitle='Optimize resource usage'
                 icon={wifi}
             />
-            <Profile50
+            </TouchableOpacity>      
+            <TouchableOpacity>     
+             <Profile50
                 title='Connected devices'
                 subtitle='Bluetooth, Cast, NFC'
                 icon={device}
             />
+            </TouchableOpacity>
         </View>
     </ScrollView>
     )
@@ -76,24 +84,53 @@ const styles = StyleSheet.create({
         width: wp(100),
         height: hp(40),
     },
-    phoneProfileBG: {
-        width: wp(100),
-        height: hp(20),
-    },
     image: {
-        width: width,
+        width: wp(100),
         height: hp(40),
     },
-    phoneImage: {
-        resizeMode: 'contain'
-
-    },
+    
     loginImage: {
         width: wp(100),
-        height: isTablet ? hp(80) : hp(70), 
         resizeMode: 'contain',
-        marginVertical: isTablet ? 10 : 5, 
+    },
+
+    // ***** Mobile Phone ***** //
+    phoneProfileBG: {
+        width: wp(100),
+        height: hp(30),
+    },
+    phoneImage: {
+        resizeMode: 'cover',
+        height: hp(30),
+        top: -20
+    },
+    phoneLoginImage: {
+        resizeMode: 'cover',
+        width: wp(90),
+        height: hp(60)
+    },
+
+    // ***** Small Tablet  ***** //
+    smallTabletLoginImage: {
+        resizeMode: 'contain',
+        height: hp(90)
+    },
+    smallTabletImage: {
+        height: hp(45),
+        top: -120
+
+    },
+
+    // ***** Large Tablet ***** //
+    largeTabletLoginImage: {
+        resizeMode: 'contain',
+        height: hp(100)
+    },
+    largeTabletImage: {
+        height: hp(50),
+        top: -120
     }
+
 })
 
 export default ProfileScreen;

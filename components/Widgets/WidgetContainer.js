@@ -1,8 +1,13 @@
 import React from 'react'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { View, Image, StyleSheet, Dimensions, Text } from 'react-native'
 import dnd from '../../assets/icons/dnd.png'
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
+
 
 const WidgetContainer = () => {
     return (
@@ -17,7 +22,7 @@ const WidgetContainer = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: width - 40,
+        width: isLargeTablet ? wp(45) : wp(90),
         height: 200,
         backgroundColor: '#21436b',
         borderRadius: 20,

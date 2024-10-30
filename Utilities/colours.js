@@ -5,4 +5,5 @@ export const colours = {
    sweetYellow: '#FFB45C',
    whiteGlow: '#FFF1CF',
    dawnBlue: '#9AAFCF',
+   popupBlue: '#4C698B'
 }

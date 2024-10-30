@@ -1,7 +1,8 @@
 //The dashboard screen contains an update component and a widget showing some progress charts from solar and thermal.
 
 import React, {useState} from 'react'
-import { View, StyleSheet, ScrollView, Dimensions, Modal, Pressable, Text } from 'react-native'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { View, StyleSheet, ScrollView, Dimensions, Modal, Pressable, Text, TouchableOpacity } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import WidgetContainer from '../components/Widgets/WidgetContainer.js'
@@ -11,6 +12,10 @@ import lightbulb from '../assets/icons/Lightbulb.png'
 import {colours} from '../Utilities/colours.js'
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
+
 
 const DashboardScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -62,10 +67,43 @@ const DashboardScreen = () => {
           <SquareWidget watt='2 W' icon={coffee} title='Morning Mode' />
           <SquareWidget watt='2 W' icon={lightbulb} title='Smart Light' />
         </View>
-        <WidgetContainer />
-        <WidgetContainer />
-        <WidgetContainer />
-        <WidgetContainer />
+        {isLargeTablet ? (
+          <>
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+          </>
+        ) : (
+          <>
+            <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+          </>
+      )}
       </View>
       </ScrollView>
   )
@@ -143,6 +181,12 @@ const styles = StyleSheet.create({
       margin: 15,
       textAlign: 'center',
     },
+
+    // ***** Large Table ***** //
+    ltWidgetRow: {
+      flexDirection: 'row',
+      gap: 16
+    }
 
 })
 
