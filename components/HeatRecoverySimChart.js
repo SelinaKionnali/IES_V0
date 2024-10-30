@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import BaseThermalLoad from '../data/BaseThermalLoad.json'; // Ensure the path is correct
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { colours } from '../Utilities/colours';
 
-const screenWidth = Dimensions.get('screen').width; // Get the correct screen width
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 dayjs.extend(relativeTime); // Extend Day.js with the plugin
 
@@ -118,8 +124,8 @@ const HeatRecoverySimChart = ({title, subtitle}) => {
             <View style={styles.lineGraphContainer}>
                 <LineChart
                     data={chartData}
-                    width={screenWidth - 60} 
-                    height={220}
+                    width={isLargeTablet ? wp(60) : isSmallTablet ? wp(60) : wp(80)} 
+                    height={isLargeTablet ? wp(35) : isSmallTablet ? wp(40) : wp(50)}
                     chartConfig={chartConfig}
                     bezier 
                     yAxisSuffix="%"
@@ -151,10 +157,9 @@ const HeatRecoverySimChart = ({title, subtitle}) => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'flex-start',
-        width: screenWidth - 20,
+        width: isLargeTablet ? wp(70) : isSmallTablet ? wp(70) : wp(95),
         justifyContent: 'center',
         padding: 12,
-        marginBottom: 20,
         borderRadius: 30,
         backgroundColor: '#21436B',
         shadowColor: 'rgba(0, 0, 0, 0.8)', 
@@ -174,7 +179,7 @@ const styles = StyleSheet.create({
     subtitle: {
         fontFamily: 'Text-Regular',
         fontSize: 16,
-        color: '#9AAFCF',
+        color: colours.dawnBlue,
         marginLeft: 16
 
     },
@@ -184,11 +189,11 @@ const styles = StyleSheet.create({
         margin: 'auto'
     },
     btnContainer: {
-        backgroundColor: '#21436B',
+        backgroundColor: colours.Blue,
         flexDirection: 'row',
         borderRadius: 10,
         padding: 8,
-        gap: 8,
+        gap: isLargeTablet ? wp(5) : isSmallTablet ? wp(5) : wp(2),
         margin: 'auto'
     },
     btn: {
@@ -196,18 +201,18 @@ const styles = StyleSheet.create({
 
     },
     btnText: {
-        color: '#9AAFCF',
+        color: colours.dawnBlue,
         fontFamily: 'Text-Bold',
-        fontSize: 14,
+        fontSize: isLargeTablet ? hp(1.3) : isSmallTablet ? hp(1.3) : hp(1.5),
     },
     btnTextFocus: {
         color: '#21436B',
         fontFamily: 'Text-Bold',
-        fontSize: 14,
+        fontSize: isLargeTablet ? hp(1.3) : isSmallTablet ? hp(1.3) : hp(1.5),
 
     },
     btnFocus: {
-        backgroundColor: '#FFB45C',
+        backgroundColor: colours.sweetYellow,
         borderRadius: 10,
         padding: 8
     }

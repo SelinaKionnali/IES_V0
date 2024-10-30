@@ -1,11 +1,16 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, ScrollView, Modal, Button, Text } from 'react-native'
+import { View, StyleSheet, Dimensions, ScrollView, Modal, Button, Text, TouchableOpacity } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
 import WidgetContainer from '../../components/Widgets/WidgetContainer.js'
 import { useModal } from '../../Utilities/ModalContext.js'
 import { colours } from '../../Utilities/colours.js'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const GreywaterSystemsScreen = () => {
     const { showModal, hideModal, modalVisible, modalContent } = useModal();
@@ -38,7 +43,43 @@ const handleUpdatePress = () => {
                 </View>
 
             </Modal>
+            {isLargeTablet ? (
+          <>
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+          </>
+        ) : (
+          <>
             <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+          </>
+      )}
         </View>
         </ScrollView>
       )
@@ -71,6 +112,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
       },
+                // ***** Large Table ***** //
+    ltWidgetRow: {
+        flexDirection: 'row',
+        gap: 16
+      }
+
 })
 
 export default GreywaterSystemsScreen;

@@ -31,7 +31,7 @@ const PowerScreen = () => {
 
 
     return (
-      <ScrollView >
+      <ScrollView style={styles.scroll} >
 
         <View style={styles.container}>
           <GeneralUpdateComponent 
@@ -54,8 +54,8 @@ const PowerScreen = () => {
             </Modal>
 
           <ProgressChartsWidget 
-            solarChart={<SolarProgressChart number='41%' text='Battery Charge'/>}
-            thermalChart={<ThermalProgressChart number='92%' text='Battery Health' header='Battery Health' />}
+            solarChart={<SolarProgressChart number='41%' text='Solar Battery Charge'/>}
+            thermalChart={<ThermalProgressChart number='92%' text='Solar Battery Health' />}
           />
           <View style={styles.widgetContainer}>
           <StatusWidget 
@@ -76,6 +76,9 @@ const PowerScreen = () => {
   }
   
   const styles = StyleSheet.create({
+    scroll: {
+      backgroundColor: colours.darkestBlue,
+    },
       container: {
           flex: 1,
           justifyContent: 'top',

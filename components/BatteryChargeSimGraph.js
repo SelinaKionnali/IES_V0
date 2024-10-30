@@ -4,8 +4,13 @@ import { LineChart } from 'react-native-chart-kit';
 import BaseThermalLoad from '../data/BaseThermalLoad.json'; // Ensure the path is correct
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const screenWidth = Dimensions.get('screen').width; // Get the correct screen width
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 dayjs.extend(relativeTime); // Extend Day.js with the plugin
 
@@ -90,7 +95,7 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
             datasets: [
               {
                 data: percentages,
-                strokeWidth: 2, // Optional: line width
+                strokeWidth: 2, 
               }
             ]
           });
@@ -98,9 +103,8 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
         } catch (error) {
           console.error('Error inside useEffect:', error);
         }
-      }, [chartTimeframe]); // Add chartTimeframe as a dependency
+      }, [chartTimeframe]); 
     
-      // Render a placeholder or loading text if chartData is still null
       if (!chartData) {
         return <Text>Loading Chart...</Text>;
       }
@@ -114,8 +118,8 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
             <View style={styles.lineGraphContainer}>
                 <LineChart
                     data={chartData}
-                    width={screenWidth - 60} 
-                    height={220}
+                    width={isLargeTablet ? wp(60) : isSmallTablet ? wp(60) : wp(80)} 
+                    height={isLargeTablet ? wp(35) : isSmallTablet ? wp(40) : wp(50)}
                     chartConfig={chartConfig}
                     bezier 
                     yAxisSuffix="%"
@@ -145,7 +149,7 @@ const BatteryChargeSimGraph = ({title, subtitle}) => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'flex-start',
-        width: screenWidth - 20,
+        width: isLargeTablet ? wp(70) : isSmallTablet ? wp(70) : wp(95),
         justifyContent: 'center',
         padding: 12,
         marginBottom: 20,

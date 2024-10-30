@@ -1,14 +1,20 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, ScrollView, Modal, Text, Button } from 'react-native'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
+import { View, StyleSheet, Dimensions, ScrollView, Modal, Text, Button, TouchableOpacity } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
 import WidgetContainer from '../../components/Widgets/WidgetContainer.js'
 import BatteryChargeChart from '../../components/BatteryChargeChart.js'
 import StatusWidget from '../../components/StatusWidget.js'
 import { solarData } from '../../data/solarData.js'
 import { useModal } from '../../Utilities/ModalContext.js'
+import { colours } from '../../Utilities/colours.js'
 
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const WaterSystemsScreen = () => {
   const { modalVisible, modalContent, showModal, hideModal } = useModal()
@@ -22,7 +28,7 @@ const WaterSystemsScreen = () => {
   }
 
     return (
-        <ScrollView >
+        <ScrollView style={styles.scroll} >
         <View style={styles.container}>
             <GeneralUpdateComponent 
             updateText='Your water tanks are full, but you are not currently hooked up to a water source and there is no rain in the forecast. I suggest checking your tanks in a week.' 
@@ -43,7 +49,7 @@ const WaterSystemsScreen = () => {
                 </View>
             </Modal>
 
-            <BatteryChargeChart number='12' label='Days until next harvest' />
+            <BatteryChargeChart number='7' label='Days until rainfall is forecast' />
             <View style={styles.rowContainer}>
                 <StatusWidget 
                  title="Water Quality" 
@@ -57,20 +63,59 @@ const WaterSystemsScreen = () => {
                 />
 
             </View>
-          <WidgetContainer />        
+            {isLargeTablet ? (
+          <>
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.ltWidgetRow}>        
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+              <TouchableOpacity>    
+                  <WidgetContainer />
+              </TouchableOpacity>
+            </View>
+          </>
+        ) : (
+          <>
+            <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+            <WidgetContainer />
+          </>
+      )}
           </View>
         </ScrollView>
       )
 }
 
 const styles = StyleSheet.create({
+  scroll: {
+    backgroundColor: colours.darkestBlue
+  },
+
     container: {
             flex: 1,
-            height: height,
-            width: width,
+            height: hp(120),
+            width: wp(100),
             justifyContent: 'top',
             alignItems: 'center',
-            borderWidth: 3,
             backgroundColor: '#0E1E38'
             
         }, 
@@ -94,7 +139,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
       },
-
+      // ***** Large Table ***** //
+      ltWidgetRow: {
+        flexDirection: 'row',
+        gap: 16
+      }
+          
 })
 
 export default WaterSystemsScreen;

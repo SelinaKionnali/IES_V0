@@ -4,8 +4,13 @@ import { LineChart } from 'react-native-chart-kit';
 import BaseThermalLoad from '../data/BaseThermalLoad.json'; // Ensure the path is correct
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const screenWidth = Dimensions.get('screen').width; // Get the correct screen width
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 dayjs.extend(relativeTime); // Extend Day.js with the plugin
 
@@ -118,8 +123,8 @@ const HeatConsumptionSimChart = ({title, subtitle}) => {
             <View style={styles.lineGraphContainer}>
                 <LineChart
                     data={chartData}
-                    width={screenWidth - 60} 
-                    height={220}
+                    width={isLargeTablet ? wp(60) : isSmallTablet ? wp(60) : wp(80)} 
+                    height={isLargeTablet ? wp(35) : isSmallTablet ? wp(40) : wp(50)}
                     chartConfig={chartConfig}
                     bezier 
                     yAxisSuffix="%"
@@ -151,7 +156,7 @@ const HeatConsumptionSimChart = ({title, subtitle}) => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'flex-start',
-        width: screenWidth - 20,
+        width: isLargeTablet ? wp(70) : isSmallTablet ? wp(70) : wp(95),
         justifyContent: 'center',
         padding: 12,
         marginBottom: 20,
@@ -188,7 +193,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 10,
         padding: 8,
-        gap: 8,
+        gap: isLargeTablet ? wp(5) : isSmallTablet ? wp(5) : wp(2),
         margin: 'auto'
     },
     btn: {
@@ -198,12 +203,12 @@ const styles = StyleSheet.create({
     btnText: {
         color: '#9AAFCF',
         fontFamily: 'Text-Bold',
-        fontSize: 14,
+        fontSize: isLargeTablet ? hp(1.3) : isSmallTablet ? hp(1.3) : hp(1.5),
     },
     btnTextFocus: {
         color: '#21436B',
         fontFamily: 'Text-Bold',
-        fontSize: 14,
+        fontSize: isLargeTablet ? hp(1.3) : isSmallTablet ? hp(1.3) : hp(1.5),
 
     },
     btnFocus: {

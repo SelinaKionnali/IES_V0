@@ -1,6 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, Platform } from 'react-native';
 import dnd from '../assets/icons/dnd.png'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
+
 
 const StatusWidget = ({ title, status, message }) => {
   const getStatusColor = (status) => {
@@ -39,7 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 15,
     marginBottom: 15,
-    width: 160,
+    width: isLargeTablet ? wp(30) : isSmallTablet ? wp(40) : wp(40),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Text-Regular',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: Platform.OS === 'android' ? '100' : '300',
     color: '#FF8C00'
   },
   dotsContainer: {

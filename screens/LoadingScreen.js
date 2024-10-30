@@ -9,6 +9,7 @@ const { width, height } = Dimensions.get('screen');
 const isLargeTablet = width >= 1024;
 const isSmallTablet = width >= 600 && width < 1024;
 const isPhone = width < 600;
+
 const LoadingScreen = ({setIsLoggedIn}) => {
     const handleLogin = () => {
         setIsLoggedIn(true);

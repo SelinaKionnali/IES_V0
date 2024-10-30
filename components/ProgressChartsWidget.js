@@ -2,9 +2,13 @@
 // The charts in this component have been sized in their own component files to be half the size of the screen width.
 
 import React from 'react';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { View, StyleSheet, Dimensions } from 'react-native';
 
-const {width} = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
   return (
@@ -35,7 +39,8 @@ const ProgressChartsWidget = ({ solarChart, thermalChart, charts = [] }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: width - 40,
+    width: isLargeTablet ? wp(80) : isSmallTablet ? wp(80) : wp(95),
+    height: isLargeTablet ? hp(40) : isSmallTablet ? hp(40) : hp(45),
     flexDirection: 'row', 
     justifyContent: 'center', 
     alignItems: 'center',
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: 20,
     marginRight: 20,
-    gap: 10,
+    gap: isLargeTablet ? wp(5) : isSmallTablet ? wp(5) : wp(8),
     
 
     // Shadow for iOS

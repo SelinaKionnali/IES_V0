@@ -7,8 +7,13 @@ import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
 import { Dimensions } from 'react-native';
 import HeatConsumptionSimChart from '../../components/HeatConsumptionSimChart.js';
 import HeatRecoverySimChart from '../../components/HeatRecoverySimChart.js';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { colours } from '../../Utilities/colours.js';
 
-const { height} = Dimensions.get('screen')
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 
 const ThermalScreen = () => {
@@ -23,7 +28,7 @@ const ThermalScreen = () => {
   }
 
   return (
-    <ScrollView >
+    <ScrollView style={styles.scroll}>
       <View style={styles.container}>
         <GeneralUpdateComponent 
         updateText="You are recovering lots of heat from cooking today." 
@@ -50,8 +55,12 @@ const ThermalScreen = () => {
 }
 
 const styles = StyleSheet.create({
+  scroll: {
+    backgroundColor: colours.darkestBlue
+},
+
     container: {
-        height: height *2,
+        height: isLargeTablet ? hp(100) : hp(120),
         flex: 1,
         justifyContent: 'top',
         alignItems: 'center',

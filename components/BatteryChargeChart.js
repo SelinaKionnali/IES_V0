@@ -1,10 +1,16 @@
 //This is a component showing some dummy data in a progress chart which is imported in dashboard.
 
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Platform } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const screenWidth = Dimensions.get('window').width;
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
+
 
 const data = {
   labels: [], // No labels needed for this design
@@ -30,10 +36,10 @@ const BatteryChargeChart = ({ number, label}) => {
     <View style={styles.container}>
       <ProgressChart
         data={data}
-        width={screenWidth - 20}
-        height={screenWidth - 20}
+        width={isLargeTablet ? wp(90) : isSmallTablet ? wp(60) : wp(90)}
+        height={isLargeTablet ? hp(45) : isSmallTablet ? hp(40) : hp(40)}
         strokeWidth={12}
-        radius={100}
+        radius={isLargeTablet ? 250 : isSmallTablet ? 200 : 150}
         chartConfig={chartConfig}
         hideLegend={true}
         style={{
@@ -53,8 +59,7 @@ const BatteryChargeChart = ({ number, label}) => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
+    alignItems: 'center',    
   },
   overlayContainer: {
     position: 'absolute',
@@ -64,14 +69,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   percentageText: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    fontSize: isLargeTablet ? hp(6) : isSmallTablet ? hp(5) : hp(5),
     color: '#FFD568', 
-    fontFamily: 'Text-Light'
+    fontFamily: 'Text-Regular',
+    fontWeight: Platform.OS === 'android' ? '100' : '300'
   },
   labelText: {
-    width: 100,
-    fontSize: 16,
+    width: isLargeTablet ? 180 : isSmallTablet ? 160 : 100,
+    fontSize: isLargeTablet ? hp(2) : isSmallTablet ? hp(2) : hp(2),
     color: '#FFF1CF',
     fontFamily: 'Text-Light',
     textAlign: 'center'

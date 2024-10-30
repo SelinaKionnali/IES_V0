@@ -4,8 +4,13 @@
 import React from 'react';
 import { View, Dimensions, Text, StyleSheet, Button, Platform } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to fit two charts side by side
+
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const data = {
   labels: ["Thermal"], // Label for the progress ring
@@ -25,14 +30,13 @@ const ThermalProgressChart = ({header, number, text}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>{header}</Text>
 
       <ProgressChart
         data={data}
-        width={screenWidth - 20}
-        height={220}
+        width={isLargeTablet ? wp(90) : isSmallTablet ? wp(60) : wp(90)}
+        height={isLargeTablet ? hp(45) : isSmallTablet ? hp(40) : hp(40)}
         strokeWidth={8}
-        radius={70}
+        radius={isLargeTablet ? wp(15) : isSmallTablet ? wp(15) : wp(20)}
         chartConfig={chartConfig}
         hideLegend={true}
       />
@@ -49,8 +53,8 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: screenWidth,
-        height: screenWidth,
+        width: width,
+        height: width,
       },
       overlayContainer: {
         position: 'absolute',
@@ -68,14 +72,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#FFF1CF',
         fontFamily: 'Text-Light',
+        width: isLargeTablet ? wp(15) : isSmallTablet ? wp(20) : wp(25),
+        textAlign: 'center'
       },
-      header: {
-    fontSize: 16,
-    fontWeight: Platform.OS === "ios" ? "300" : "100",
-    marginBottom: 10,
-    color: '#FFF1CF',
-    fontFamily: 'Text-Light',
-  },
   btn: {
     width: 200,
     height: 50,

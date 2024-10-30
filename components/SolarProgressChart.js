@@ -2,10 +2,15 @@
 // if i want the chart to show dynamically in widget, then this component stays the same and is imported to parent component (screens) to pass the props to widget.
 
 import React from 'react';
-import { View, Dimensions, Text, StyleSheet, Platform } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { View, Dimensions, Text, StyleSheet, Platform, ScrollView } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
+import { colours } from '../Utilities/colours';
 
-const screenWidth = Dimensions.get('window').width / 2; // Adjust the width to fit two charts side by side
+const { width, height } = Dimensions.get('screen');
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const data = {
   labels: ["Solar"], // Label for the progress ring
@@ -22,21 +27,20 @@ const chartConfig = {
 const SolarProgressChart = ({ text, number }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Solar Usage</Text>
       <ProgressChart
         data={data}
-        width={screenWidth - 20}
-        height={220}
+        width={isLargeTablet ? wp(90) : isSmallTablet ? wp(60) : wp(90)}
+        height={isLargeTablet ? hp(45) : isSmallTablet ? hp(40) : hp(40)}
         strokeWidth={8}
-        radius={70}
+        radius={isLargeTablet ? wp(15) : isSmallTablet ? wp(15) : wp(20)}
         chartConfig={chartConfig}
         hideLegend={true}
       />
-            <View style={styles.overlayContainer}>
+      
+      <View style={styles.overlayContainer}>
         <Text style={styles.percentageText}>{number}</Text>
         <Text style={styles.labelText}>{text}</Text>
       </View>
-
     </View>
   );
 };
@@ -45,8 +49,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: screenWidth,
-        height: screenWidth,
+        
       },
       overlayContainer: {
         position: 'absolute',
@@ -65,13 +68,16 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#FFF1CF',
         fontFamily: 'Text-Light',
+        width: isLargeTablet ? wp(20) : isSmallTablet ? wp(20) : wp(25),
+        textAlign: 'center'
+
       },
       header: {
-    fontSize: 16,
-    fontWeight: Platform.OS === "ios" ? "300" : "100",
-    marginBottom: 10,
-    color: '#FFF1CF',
-    fontFamily: 'Text-Light',
+        borderWidth: 2,
+        fontSize: 16,
+        fontWeight: Platform.OS === "ios" ? "300" : "100",
+        color: '#FFF1CF',
+        fontFamily: 'Text-Light',
   },
 });
 

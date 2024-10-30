@@ -111,7 +111,7 @@ const DashboardScreen = () => {
 
 const styles = StyleSheet.create({
     scroll: {
-      backgroundColor: '#0E1E38',
+      backgroundColor: colours.darkestBlue,
       flex: 1
     },
     container: {
@@ -120,9 +120,7 @@ const styles = StyleSheet.create({
         width: width,
         justifyContent: 'top',
         alignItems: 'center',
-        borderWidth: 3,
-        backgroundColor: '#0E1E38',
-        marginBottom: 300
+        backgroundColor: colours.darkestBlue,
     },
     squareWidgetRow: {
       flexDirection: 'row',
