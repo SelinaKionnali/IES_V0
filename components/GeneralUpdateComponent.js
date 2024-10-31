@@ -12,10 +12,7 @@ const isPhone = width < 600;
 const GeneralUpdateComponent = ({updateText, onUpdatePress, onChatPress}) => {
     
    return (
-    <View style={[
-        styles.columnContainer,
-        isSmallTablet && styles.columnContainerSmTab
-    ]}
+    <View style={styles.columnContainer}
     >
         <View style={styles.rowContainer}>
             <Image source={Lumi} style={{marginRight: 20}}/>
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         margin: 20,
-        width: isLargeTablet ? wp(50) : wp(90),
+        width: isLargeTablet ? wp(60) : isSmallTablet ? wp(70) : wp(90),
         backgroundColor: '#4C698B',
         borderRadius: 30,
         padding: 20,

@@ -22,7 +22,7 @@ const WidgetContainer = () => {
 
 const styles = StyleSheet.create({
     container: {
-        width: isLargeTablet ? wp(45) : wp(90),
+        width: isLargeTablet ? wp(45) : isSmallTablet ? wp(45) : wp(90),
         height: 200,
         backgroundColor: '#21436b',
         borderRadius: 20,

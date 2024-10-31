@@ -68,16 +68,15 @@ const SquareWidget = ({ watt, icon, title }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: width / 2.4,
-        height: width / 2.4,
+        width: wp(21),
         backgroundColor: colours.Blue,
         borderRadius: 20,
         marginVertical: 10,
         alignItems: 'center',
-        padding: 8,
+        padding: 10,
         maxWidth: 200,
         maxHeight: 200,
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     rowContainer: {
         width: '100%',

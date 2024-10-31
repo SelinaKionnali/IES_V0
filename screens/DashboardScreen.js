@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { View, StyleSheet, ScrollView, Dimensions, Modal, Pressable, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, ScrollView, Dimensions, Modal, Pressable, Text, TouchableOpacity, FlatList } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import WidgetContainer from '../components/Widgets/WidgetContainer.js'
@@ -15,6 +15,15 @@ const {width, height} = Dimensions.get('screen')
 const isLargeTablet = width >= 1024;
 const isSmallTablet = width >= 600 && width < 1024;
 const isPhone = width < 600;
+
+const squareWidgetData = [
+  { id: '1', watt: '2 W', icon: coffee, title: 'Morning Mode 1' },
+  { id: '2', watt: '2 W', icon: lightbulb, title: 'Smart Light 1'},
+  { id: '3', watt: '2 W', icon: coffee, title: 'Morning Mode 2' },
+  { id: '4', watt: '2 W', icon: lightbulb, title: 'Smart Light 2'},
+  { id: '5', watt: '2 W', icon: coffee, title: 'Morning Mode 3' },
+  { id: '6', watt: '2 W', icon: lightbulb, title: 'Smart Light 3'},
+];
 
 
 const DashboardScreen = () => {
@@ -56,12 +65,17 @@ const DashboardScreen = () => {
                     </View>
                 </View>
             </Modal>
+        <FlatList 
+          data={squareWidgetData}
+          renderItem={({item}) => (
+              <SquareWidget title={item.title} watt={item.watt} icon={item.icon} />
+          )}
+          keyExtractor={item => item.id}
+          horizontal
+          style={styles.squareWidgetRow}
+        />
 
-        <View style={styles.squareWidgetRow}>
-          <SquareWidget watt='2 W' icon={coffee} title='Morning Mode' />
-          <SquareWidget watt='2 W' icon={lightbulb} title='Smart Light' />
-        </View>
-        {isLargeTablet ? (
+        {isLargeTablet || isSmallTablet ? (
           <>
             <View style={styles.ltWidgetRow}>        
               <TouchableOpacity>    
@@ -110,15 +124,14 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        height: height,
-        width: width,
+        height: hp(100),
+        width: wp(100),
         justifyContent: 'top',
         alignItems: 'center',
         backgroundColor: colours.darkestBlue,
     },
     squareWidgetRow: {
       flexDirection: 'row',
-      gap: 16
     },
     text: {
         color: '#FFF1CF',
@@ -204,7 +217,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       gap: 16
     }
-
 })
 
 export default DashboardScreen;
