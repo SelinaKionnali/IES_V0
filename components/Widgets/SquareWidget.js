@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
-import { View, Image, StyleSheet, Dimensions, Text, Platform, Modal, Pressable } from 'react-native'
+import { View, Image, StyleSheet, Dimensions, Text, Platform, Modal, TouchableOpacity } from 'react-native'
 import dnd from '../../assets/icons/dnd.png'
 import { colours } from '../../Utilities/colours'
 import ToggleRow from '../ToggleRow'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const SquareWidget = ({ watt, icon, title }) => {
     const [isToggled, setIsToggled] = useState(false)
@@ -14,16 +19,13 @@ const SquareWidget = ({ watt, icon, title }) => {
     const handlePressIcon1 = () => {
         setModalVisible(true)
         setModalContent('Alarm content')
-        console.log('Icon 1 pressed')
     }
     const handlePressIcon2 = () => {
         setModalVisible(true)
         setModalContent('Settings content')
-        console.log('Icon 2 pressed')
     }
    
     const handleToggleChange = () => {
-        console.log('toggle change')
         setIsToggled(!isToggled)
     }
     return (
@@ -45,22 +47,18 @@ const SquareWidget = ({ watt, icon, title }) => {
                 />
             </View>
             <Modal
-                animationType='fade'
                 transparent={true}
+                animationType="fade"
                 visible={modalVisible}
-                onRequestClose={() => {
-                Alert.alert('Modal has been closed.');
-                setModalVisible(!modalVisible);
-                }}>
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                            <Pressable
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}>
-                            <Text style={styles.textStyle}>X</Text>
-                            </Pressable>
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContent}>
                         <Text style={styles.modalText}>{modalContent}</Text>
-                     </View>
+                        <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
+                        <Text style={styles.closeButtonText}>Close</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </Modal>
             
@@ -176,9 +174,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 4,
       },
-      buttonClose: {
-        backgroundColor: colours.sweetYellow,
-      },
       textStyle: {
         color: 'white',
         fontWeight: 'bold',
@@ -190,6 +185,39 @@ const styles = StyleSheet.create({
         margin: 15,
         textAlign: 'center',
       },
+
+      modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      modalContent: {
+        width: isLargeTablet ? wp(50) : isSmallTablet ? wp(50) : wp(80),
+        backgroundColor: colours.dawnBlue,
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+      },
+      modalText: {
+        fontSize: 18,
+        fontFamily: 'Text-Regular',
+        color: colours.darkBlue,
+        marginBottom: 20,
+      },
+      closeButton: {
+        backgroundColor: colours.orange,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+      },
+      closeButtonText: {
+        color: 'white',
+        fontFamily: 'Text-Bold',
+        fontSize: 16,
+      },
+  
+  
 })
 
 export default SquareWidget;

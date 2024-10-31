@@ -24,13 +24,11 @@ const DashboardScreen = () => {
   const handleChatPress = () => {
     setModalVisible(true)
     setModalContent('Chat Pressed')
-    console.log('chat pressed')
   }
 
   const handleUpdatePress = () => {
     setModalVisible(true)
     setModalContent('Update Pressed')
-    console.log('update pressed')
   }
 
   return (
@@ -44,22 +42,18 @@ const DashboardScreen = () => {
           />
 
             <Modal
-                animationType='fade'
                 transparent={true}
+                animationType="fade"
                 visible={modalVisible}
-                onRequestClose={() => {
-                Alert.alert('Modal has been closed.');
-                setModalVisible(false);
-                }}>
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                            <Pressable
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(false)}>
-                            <Text style={styles.textStyle}>X</Text>
-                            </Pressable>
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContent}>
                         <Text style={styles.modalText}>{modalContent}</Text>
-                     </View>
+                        <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.closeButton}>
+                        <Text style={styles.closeButtonText}>Close</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </Modal>
 
@@ -165,9 +159,6 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 4,
     },
-    buttonClose: {
-      backgroundColor: colours.sweetYellow,
-    },
     textStyle: {
       color: 'white',
       fontWeight: 'bold',
@@ -175,10 +166,38 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
-    modalText: {
-      margin: 15,
-      textAlign: 'center',
+
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
+    modalContent: {
+      width: '80%',
+      backgroundColor: colours.dawnBlue,
+      padding: 20,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    modalText: {
+      fontSize: 18,
+      fontFamily: 'Text-Regular',
+      color: colours.darkBlue,
+      marginBottom: 20,
+    },
+    closeButton: {
+      backgroundColor: colours.orange,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+    },
+    closeButtonText: {
+      color: 'white',
+      fontFamily: 'Text-Bold',
+      fontSize: 16,
+    },
+
 
     // ***** Large Table ***** //
     ltWidgetRow: {

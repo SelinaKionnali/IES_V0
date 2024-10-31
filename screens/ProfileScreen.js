@@ -1,6 +1,5 @@
 import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
 import { View, StyleSheet, Dimensions, ScrollView, Image } from 'react-native'
 import profileHeader from '../assets/BGs/profileHeader.png'
 import Profile50 from '../components/Widgets/Profile50'

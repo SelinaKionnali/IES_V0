@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: wp(5)
+        marginTop: wp(5),
+        marginBottom: wp(2)
 
     },
     inputContainer: {

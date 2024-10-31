@@ -28,7 +28,7 @@ const Profile50 = ({ icon, title, subtitle }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: isLargeTablet ? wp(70) : isSmallTablet ? wp(80) : wp(90),
+        width: isLargeTablet ? wp(65) : isSmallTablet ? wp(75) : wp(90),
         height: isLargeTablet ? hp(4) : isSmallTablet ? hp(5) : hp(6),
         backgroundColor: '#21436b',
         borderRadius: 20,
