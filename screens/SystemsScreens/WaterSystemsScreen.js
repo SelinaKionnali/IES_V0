@@ -1,7 +1,6 @@
 import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
-import { View, StyleSheet, Dimensions, ScrollView, Modal, Text, Button, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Dimensions, ScrollView, Modal, Text, Button, TouchableOpacity, Image } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent.js'
 import WidgetContainer from '../../components/Widgets/WidgetContainer.js'
 import BatteryChargeChart from '../../components/BatteryChargeChart.js'
@@ -9,6 +8,7 @@ import StatusWidget from '../../components/StatusWidget.js'
 import { solarData } from '../../data/solarData.js'
 import { useModal } from '../../Utilities/ModalContext.js'
 import { colours } from '../../Utilities/colours.js'
+import waterAnimation from '../../assets/waterAnimation.png'
 
 
 const {width, height} = Dimensions.get('screen')
@@ -48,8 +48,7 @@ const WaterSystemsScreen = () => {
                     </View>
                 </View>
             </Modal>
-
-            <BatteryChargeChart number='7' label='Days until rainfall is forecast' />
+            <Image source={waterAnimation} style={styles.image}/>
             <View style={styles.rowContainer}>
                 <StatusWidget 
                  title="Water Quality" 
@@ -61,8 +60,9 @@ const WaterSystemsScreen = () => {
                 status={solarData.systemStatus.status} 
                 message='No leaks' 
                 />
-
             </View>
+            <BatteryChargeChart number='7' label='Days until rainfall is forecast' />
+
             {isLargeTablet ? (
           <>
             <View style={styles.ltWidgetRow}>        
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
   scroll: {
     backgroundColor: colours.darkestBlue
   },
-
     container: {
             flex: 1,
             height: hp(120),
@@ -125,6 +124,11 @@ const styles = StyleSheet.create({
     rowContainer: {
         flexDirection: 'row',
         gap: 10
+    },
+    image: {
+      margin: 20,
+      width: wp(48),
+      height: hp(22)
     },
     modalBackground: {
         flex: 1,

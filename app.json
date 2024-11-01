@@ -16,7 +16,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "y"
+      "bundleIdentifier": "com.kionnali.iesv0"
     },
     "android": {
       "adaptiveIcon": {

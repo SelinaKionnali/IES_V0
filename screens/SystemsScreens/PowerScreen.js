@@ -1,6 +1,7 @@
 // This screen contains a navigational bar at the top, an update component, a widget and a chart.
 
 import React from 'react'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { View, StyleSheet, ScrollView, Dimensions, Platform, Modal, Text, Button  } from 'react-native'
 import GeneralUpdateComponent from '../../components/GeneralUpdateComponent'
 import ProgressChartsWidget from '../../components/ProgressChartsWidget'
@@ -14,6 +15,9 @@ import { useModal } from '../../Utilities/ModalContext.js'
 
 
 const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 
 const PowerScreen = () => {
@@ -32,26 +36,25 @@ const PowerScreen = () => {
 
     return (
       <ScrollView style={styles.scroll} >
-
         <View style={styles.container}>
           <GeneralUpdateComponent 
           updateText="Your batteries are full and there are no significant battery drains." 
           onChatPress={handleChatPress}
           onUpdatePress={handleUpdatePress}
-
           />
-            <Modal
+
+          <Modal
             transparent={true}
             visible={modalVisible}
             onRequestClose={hideModal}
-      >
-                <View style={styles.modalBackground}>
-                    <View style={styles.modalContent}>
-                        <Text>{modalContent}</Text>
-                        <Button title="Close" onPress={hideModal} />
-                    </View>
-                </View>
-            </Modal>
+          >
+            <View style={styles.modalBackground}>
+              <View style={styles.modalContent}>
+                <Text>{modalContent}</Text>
+                <Button title="Close" onPress={hideModal} />
+              </View>
+            </View>
+          </Modal>
 
           <ProgressChartsWidget 
             solarChart={<SolarProgressChart number='41%' text='Solar Battery Charge'/>}

@@ -18,18 +18,14 @@ const GeneralUpdateComponent = ({updateText, onUpdatePress, onChatPress}) => {
             <Image source={Lumi} style={{marginRight: 20}}/>
             <Text style={styles.text}>{updateText}</Text>
         </View>
-    <View style={styles.rowTextContainer}>
-    <TouchableOpacity
-        onPress={onUpdatePress}
-    >
-            <Text style={styles.linkText}>Full update</Text>
-    </TouchableOpacity>
-    <TouchableOpacity 
-        onPress={onChatPress}
-    >
-            <Text style={styles.linkText}>Quick chat</Text>
-    </TouchableOpacity>
-    </View>
+        <View style={styles.rowTextContainer}>
+            <TouchableOpacity onPress={onUpdatePress}>
+                <Text style={styles.linkText}>Full update</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onChatPress}>
+                <Text style={styles.linkText}>Quick chat</Text>
+            </TouchableOpacity>
+        </View>
    
     </View>
    )
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
     columnContainer: {
         display: 'flex',
         flexDirection: 'column',
-        margin: 20,
+        margin: 8,
         width: isLargeTablet ? wp(60) : isSmallTablet ? wp(70) : wp(90),
         backgroundColor: '#4C698B',
         borderRadius: 30,

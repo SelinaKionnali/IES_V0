@@ -1,19 +1,23 @@
 import React from 'react'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity,
     Image,
     View,
     StyleSheet,
     FlatList, Dimensions } from 'react-native'
-import compostImg from '../assets/icons/compostSystemsIcon.png'
-import foodImg from '../assets/icons/foodSystemsIcon.png'
-import waterImg from '../assets/icons/waterSystemsIcon.png'
-import greywaterImg from '../assets/icons/greywaterSystemsIcon.png'
-import heatImg from '../assets/icons/heatSystemsIcon.png'
-import powerImg from '../assets/icons/powerSystemsIcon.png'
+import compostImg from '../assets/icons/compost.png'
+import foodImg from '../assets/icons/foodApple.png'
+import waterImg from '../assets/icons/water.png'
+import greywaterImg from '../assets/icons/greywater.png'
+import heatImg from '../assets/icons/thermal.png'
+import powerImg from '../assets/icons/lightbulb1.png'
 import {colours} from '../Utilities/colours.js'
 
-const screenWidth = Dimensions.get('screen').width;
+const {width, height} = Dimensions.get('screen')
+const isLargeTablet = width >= 1024;
+const isSmallTablet = width >= 600 && width < 1024;
+const isPhone = width < 600;
 
 const systemsIconData = [
     {
@@ -74,14 +78,13 @@ const SystemsTopTabNavigator = () => {
 
 const styles = StyleSheet.create ({
     icon: {
-        width: 50,
-        height: 50,
-        marginHorizontal: 5,
-        justifyContent: 'space-around'
+        width: wp(14),
+        height: hp(6),
+        justifyContent: 'space-around',
 
       },
       container: {
-        width: screenWidth * 0.9,
+        width: width * 0.9,
         height: 70,
         padding: 10,
         backgroundColor: colours.Blue,

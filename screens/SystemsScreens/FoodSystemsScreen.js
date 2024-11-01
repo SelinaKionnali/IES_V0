@@ -38,14 +38,14 @@ const FoodSystemsScreen = () => {
             transparent={true}
             visible={modalVisible}
             onRequestClose={hideModal}
-      >
-        <View style={styles.modalBackground}>
-          <View style={styles.modalContent}>
-            <Text>{modalContent}</Text>
-            <Button title="Close" onPress={hideModal} />
-          </View>
-        </View>
-      </Modal>
+          >
+            <View style={styles.modalBackground}>
+              <View style={styles.modalContent}>
+                <Text>{modalContent}</Text>
+                <Button title="Close" onPress={hideModal} />
+              </View>
+            </View>
+          </Modal>
           <BatteryChargeChart number='12' label='Days until next harvest' />
           <View style={styles.rowContainer}>
           <StatusWidget 

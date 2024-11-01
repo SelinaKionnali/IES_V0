@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { View, StyleSheet, ScrollView, Dimensions, Modal, Pressable, Text, TouchableOpacity, FlatList } from 'react-native'
+import { View, StyleSheet, ScrollView, Dimensions, Modal, Text, TouchableOpacity, FlatList } from 'react-native'
 import GeneralUpdateComponent from '../components/GeneralUpdateComponent.js'
 import SystemsTopTabNavigator from '../components/SystemsTopTabNavigator.js'
 import WidgetContainer from '../components/Widgets/WidgetContainer.js'
@@ -49,7 +49,24 @@ const DashboardScreen = () => {
           onChatPress={handleChatPress}
           onUpdatePress={handleUpdatePress}
           />
-
+          {isLargeTablet ? (
+            <FlatList 
+              data={squareWidgetData}
+              renderItem={({item}) => (
+                  <SquareWidget title={item.title} watt={item.watt} icon={item.icon} />
+              )}
+              keyExtractor={item => item.id}
+              horizontal
+              contentContainerStyle={[styles.squareWidgetRow, { paddingHorizontal: 10, height: hp(20), width: '140%' }]} 
+              showsHorizontalScrollIndicator={false}         
+              />
+          ) : (
+            <View style={styles.squareWidgetRow}>
+            <SquareWidget title='Morning Mode' icon={coffee} watt='2 W' />
+            <SquareWidget title='Smart Light 1' icon={lightbulb} watt='2 W' />          
+            </View>
+          )}
+          
             <Modal
                 transparent={true}
                 animationType="fade"
@@ -65,15 +82,6 @@ const DashboardScreen = () => {
                     </View>
                 </View>
             </Modal>
-        <FlatList 
-          data={squareWidgetData}
-          renderItem={({item}) => (
-              <SquareWidget title={item.title} watt={item.watt} icon={item.icon} />
-          )}
-          keyExtractor={item => item.id}
-          horizontal
-          style={styles.squareWidgetRow}
-        />
 
         {isLargeTablet || isSmallTablet ? (
           <>
@@ -128,10 +136,12 @@ const styles = StyleSheet.create({
         width: wp(100),
         justifyContent: 'top',
         alignItems: 'center',
+        gap: 8,
         backgroundColor: colours.darkestBlue,
     },
     squareWidgetRow: {
-      flexDirection: 'row',
+      borderColor: 'red',
+      alignItems: 'center',
     },
     text: {
         color: '#FFF1CF',
@@ -209,6 +219,10 @@ const styles = StyleSheet.create({
       color: 'white',
       fontFamily: 'Text-Bold',
       fontSize: 16,
+    },
+    squareWidgetRow: {
+      flexDirection: 'row',
+      gap: 16
     },
 
 

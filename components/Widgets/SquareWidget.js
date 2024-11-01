@@ -68,7 +68,7 @@ const SquareWidget = ({ watt, icon, title }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: wp(21),
+        width: isLargeTablet ? wp(22) : isSmallTablet ? wp(28) : wp(45),
         backgroundColor: colours.Blue,
         borderRadius: 20,
         marginVertical: 10,
