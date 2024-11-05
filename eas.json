@@ -3,15 +3,17 @@
     "version": ">= 12.6.0",
     "appVersionSource": "remote"
   },
-"build": {
+  "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "buildType": "development",
       "ios": {
         "simulator": false,
         "buildConfiguration": "Debug"
       }
-    },    "preview": {
+    },
+    "preview": {
       "distribution": "internal"
     },
     "production": {
