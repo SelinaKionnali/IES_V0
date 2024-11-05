@@ -16,7 +16,19 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.kionnali.iesv0"
+      "bundleIdentifier": "com.kionnali.iesv0",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSExceptionDomains": {
+            "localhost": {
+              "NSExceptionAllowsInsecureHTTPLoads": true
+            },
+            "192.168.4.69": {
+              "NSExceptionAllowsInsecureHTTPLoads": true
+            }
+          }
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
