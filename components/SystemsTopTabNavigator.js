@@ -78,22 +78,22 @@ const SystemsTopTabNavigator = () => {
 
 const styles = StyleSheet.create ({
     icon: {
-        width: wp(14),
-        height: hp(6),
+        width: wp(5),
+        height: hp(5),
         justifyContent: 'space-around',
 
       },
       container: {
         width: width * 0.9,
-        height: 70,
-        padding: 10,
+        height: hp(8),
         backgroundColor: colours.Blue,
         borderRadius: 100,
         marginVertical: 20,
       },
       iconContainers: {
-        width: 50,
-        height: 50
+        width: wp(8),
+        alignItems: 'center'
+
       },
       flatlistContent: {
         justifyContent: 'space-around',
