@@ -7,7 +7,6 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "buildType": "development",
       "ios": {
         "simulator": false,
         "buildConfiguration": "Debug"
