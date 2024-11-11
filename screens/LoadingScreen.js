@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { StyleSheet, Text, ImageBackground, Dimensions, View, TouchableOpacity, Image, Platform, ScrollView } from 'react-native';
 import logo from '../assets/yellowLogo.png'
 import BGimg from '../assets/loadingScreen.jpg'
 import { colours } from '../Utilities/colours';
+import { fetchData } from '../Utilities/apiService';
 
 const { width, height } = Dimensions.get('screen');
 const isLargeTablet = width >= 1024;
@@ -11,6 +12,20 @@ const isSmallTablet = width >= 600 && width < 1024;
 const isPhone = width < 600;
 
 const LoadingScreen = ({setIsLoggedIn}) => {
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchData();
+        console.log(data); // Log data to verify it’s working
+        setIsLoggedIn(false); // Set to true if data is successfully fetched
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setIsLoggedIn(false); // Optional: Adjust based on your needs
+      }
+    };
+
+    loadData();
+  }, []);
     const handleLogin = () => {
         setIsLoggedIn(true);
       };
