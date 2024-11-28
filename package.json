@@ -63,11 +63,17 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "doctor": {
+   "doctor": {
     "reactNativeDirectoryCheck": {
-      "listUnknownPackages": false
-    },
-    "assetBundlePatterns": ["**/*"]
+      "exclude": [
+        "@expo/metro-runtime",
+        "@react-navigation/material-bottom-tabs",
+        "csvtojson",
+        "react-native-chart-kit",
+        "react-native-draggable",
+        "react-native-progress-circle"
+      ]
+    }
   }
 }
 }
