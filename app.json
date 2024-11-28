@@ -10,7 +10,7 @@
       "**/*"
     ],
     "splash": {
-      "image": "./assets/SplashScreen.jpg",
+      "image": "./assets/splashScreen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
