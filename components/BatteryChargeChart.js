@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   percentageText: {
-    fontSize: isLargeTablet ? hp(6) : isSmallTablet ? hp(5) : hp(5),
+    fontSize: isLargeTablet ? hp(4) : isSmallTablet ? hp(5) : hp(5),
     color: '#FFD568', 
     fontFamily: 'Text-Regular',
     fontWeight: Platform.OS === 'android' ? '100' : '300'

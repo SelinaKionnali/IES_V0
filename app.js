@@ -11,7 +11,6 @@ import LoadingScreen from './screens/LoadingScreen';
 import BottomTabNavigator from './components/BottomTabNavigator';
 import SystemsStackNavigator from './navigators/SystemsStackNavigator.js'
 import { StatusBar, SafeAreaView } from 'react-native';
-import { colours } from './Utilities/colours.js';
 import { ModalProvider } from './Utilities/ModalContext.js'
 
 SplashScreen.preventAutoHideAsync();

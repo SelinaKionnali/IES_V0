@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 // Define a new route /api/data
 app.get('/api/data', (req, res) => {
-    const data = 'Hello from the Kionnali app backend! 🌻';
+    const data = 'message: Hello from the Kionnali app backend! 🌻';
     res.send(data);
   });
 
