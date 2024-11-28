@@ -59,7 +59,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/SplashScreen.png",
+      "image": "./assets/SplashScreen.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
