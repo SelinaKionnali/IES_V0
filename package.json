@@ -1,10 +1,10 @@
 {
   "name": "ies_v0",
   "version": "1.0.0",
- "scripts": {
-  "start": "expo start --dev-client",
-  "web": "expo start --web"
-},
+  "scripts": {
+    "start": "expo start --dev-client",
+    "web": "expo start --web"
+  },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
     "@react-native-masked-view/masked-view": "0.3.2",
@@ -49,22 +49,20 @@
     "@types/react": "^18.3.12"
   },
   "private": true,
- "expo": {
-  "name": "IES V0", 
-  "slug": "ies-v0", 
-  "version": "1.0.0",
-  "platforms": ["ios", "android"],
-  "newArchEnabled": true,
-  "sdkVersion": "52.0.0",
-  "orientation": "portrait",
-  "icon": "./assets/icon.png",
- "splash": {
-  "image": "./assets/SplashScreen.png",
-  "resizeMode": "contain",
-  "backgroundColor": "#ffffff"
+  "expo": {
+    "name": "IES V0",
+    "slug": "ies-v0",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
+    "newArchEnabled": true,
+    "sdkVersion": "52.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/SplashScreen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"]
+  }
 }
-  "assetBundlePatterns": ["**/*"]
-}
-}
-
-  
