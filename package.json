@@ -2,7 +2,7 @@
   "name": "ies_v0",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "expo start",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -48,33 +48,5 @@
     "@babel/core": "^7.20.0",
     "@types/react": "^18.3.12"
   },
-  "private": true,
-  "expo": {
-    "name": "IES V0",
-    "slug": "ies-v0",
-    "version": "1.0.0",
-    "platforms": ["ios", "android"],
-    "newArchEnabled": true,
-    "sdkVersion": "52.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splashScreen.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-"doctor": {
-    "reactNativeDirectoryCheck": {
-      "exclude": [
-        "@expo/metro-runtime",
-        "@react-navigation/material-bottom-tabs",
-        "csvtojson",
-        "react-native-chart-kit",
-        "react-native-draggable",
-        "react-native-progress-circle",
-        "react-native-responsive-screen"
-      ]
-    }
-  }
-}
+  "private": true
 }

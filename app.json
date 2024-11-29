@@ -6,9 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/kls.png",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "splash": {
       "image": "./assets/splashScreen.png",
       "resizeMode": "contain",
@@ -47,6 +45,22 @@
       "eas": {
         "projectId": "0cdb265f-8fe3-4033-bf32-44d89d8aa789"
       }
-    }
+    },
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "@expo/metro-runtime",
+          "@react-navigation/material-bottom-tabs",
+          "csvtojson",
+          "react-native-chart-kit",
+          "react-native-draggable",
+          "react-native-progress-circle",
+          "react-native-responsive-screen"
+        ],
+        "listUnknownPackages": false
+      }
+    },
+    "newArchEnabled": true,
+    "sdkVersion": "52.0.0"
   }
 }
