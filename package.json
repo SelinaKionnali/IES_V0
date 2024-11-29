@@ -63,7 +63,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-   "doctor": {
+"doctor": {
     "reactNativeDirectoryCheck": {
       "exclude": [
         "@expo/metro-runtime",
@@ -71,7 +71,8 @@
         "csvtojson",
         "react-native-chart-kit",
         "react-native-draggable",
-        "react-native-progress-circle"
+        "react-native-progress-circle",
+        "react-native-responsive-screen"
       ]
     }
   }
