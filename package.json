@@ -48,19 +48,19 @@
     "@babel/core": "^7.20.0",
     "@types/react": "^18.3.12"
   },
-  "doctor": {
-    "reactNativeDirectoryCheck": {
-      "exclude": [
-        "@expo/metro-runtime",
-        "@react-navigation/material-bottom-tabs",
-        "csvtojson",
-        "react-native-chart-kit",
-        "react-native-draggable",
-        "react-native-progress-circle",
-        "react-native-responsive-screen"
-      ],
-      "listUnknownPackages": false
-    }
-  },
+ "doctor": {
+  "reactNativeDirectoryCheck": {
+    "exclude": [
+      "@expo/metro-runtime",
+      "@react-navigation/material-bottom-tabs",
+      "csvtojson",
+      "react-native-chart-kit",
+      "react-native-draggable",
+      "react-native-progress-circle",
+      "react-native-responsive-screen"
+    ],
+    "listUnknownPackages": false
+  }
+},
   "private": true
 }
